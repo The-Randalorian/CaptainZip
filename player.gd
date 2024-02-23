@@ -7,6 +7,7 @@ const GROUND_SPEED = 300.0			# target speed on the ground
 const GROUND_ACCELERATION = 300.0	# how fast to speed up
 const GROUND_DECELERATION = 200.0	# how fast to slow down
 const PLATFORMING_FLOAT = 0.4		# how much we want to let the player float or glide by holding space
+const ZIP_ANGLE_FORGIVENESS = 0.5	# how much of the players off-angle velocity we want to put into the zipline
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,8 +29,12 @@ func attach_to_zip(zip):
 		var snap_x = clamp(position.x, zip.position.x, zip.position.x+zip.endpoint.x)
 		var snap_pos = Vector2(snap_x, zip.get_snap_height(snap_x))
 		position = snap_pos - hook_offset
-		#var snap_v = zip.get_snap_slope_vector(snap_x)
-		#velocity = snap_v.dot(velocity) * snap_v
+		var snap_v = zip.get_snap_slope_vector(snap_x)
+		var new_v = snap_v.dot(velocity) * snap_v
+		if new_v.length() < 50:
+			velocity = new_v
+			return
+		velocity = new_v.normalized() * lerp(new_v.length(), velocity.length(), ZIP_ANGLE_FORGIVENESS)
 
 
 func _physics_process(delta):
