@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=8 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="1_jqs0m"]
 [ext_resource type="Texture2D" uid="uid://b0cwskxbp8k27" path="res://Tilemap/tilemap_packed.png" id="2_ueb6e"]
 [ext_resource type="PackedScene" uid="uid://c7sqd5bbfivkq" path="res://parrots/green-blue/parrot_00.tscn" id="3_j0ajl"]
+[ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="4_fwaew"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ppqik"]
 friction = 0.65
@@ -763,3 +764,7 @@ position = Vector2(514, 183)
 
 [node name="Parrot_06" parent="." instance=ExtResource("3_j0ajl")]
 position = Vector2(644, 164)
+
+[node name="Zipline" parent="." instance=ExtResource("4_fwaew")]
+position = Vector2(810, 100)
+endpoint = Vector2(180, 72)

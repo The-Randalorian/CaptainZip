@@ -1,10 +1,12 @@
 @tool
 
-class_name RopeBridge
+class_name Zipline
 
-extends Node3D
+extends Node2D
 
-@export var endpoint = Vector3(2, 0, 0):
+const SEGMENT_SIZE = 18
+
+@export var endpoint = Vector2(2, 0):
 	set(new_endpoint):
 		endpoint = new_endpoint
 		rebuild()
@@ -39,6 +41,10 @@ func _ready():
 	#is_ready = true
 	rebuild()
 
+func attach_body(body):
+	print("Body attached!")
+	body.attach_to_zip(self)
+
 func rebuild():
 	if template == null:
 		return
@@ -49,35 +55,30 @@ func rebuild():
 	for component in components:
 		component.queue_free()
 	components = []
-	
 	_bake_catenary()
 	var ratio = endpoint.x / round(endpoint.x)
-	var shift = endpoint.z / endpoint.x
-	while len(components) < round(endpoint.x):
+	while len(components) < round(endpoint.x) / SEGMENT_SIZE:
 		var component = template.instantiate()
 		component.name = "bridge_component_" + str(len(components))
-		var distance = ratio * len(components)
-		var height = _calculate_catenary(distance)
-		var delta = _calculate_catenary(distance + ratio) - height
-		#print(distance, ", ", height)
-		component.position = Vector3(
+		var distance = ratio * len(components) * SEGMENT_SIZE
+		var height = -1 * calculate_catenary(distance)
+		var delta = -1 * calculate_catenary(distance + ratio) - height
+		print(distance, ", ", height, ", ", ratio)
+		component.position = Vector2(
 			distance, 
-			height, 
-			shift * distance)
-		component.scale = Vector3(ratio, 1.0, 1.0)
-		var offset = Basis(
-			Vector3(ratio, delta, shift),
-			Vector3(0, 1, 0),
-			Vector3(0, 0, 1)
-		)
-		component.transform.basis = offset
+			height)
+		var shift = Vector2(ratio, delta)
+		component.scale = Vector2(shift.length(), 1.0)
+		component.rotation = shift.angle()
+		component.skew = -shift.angle()
 		components.append(component)
-		add_child(component)	
+		add_child(component)
+		component.body_entered.connect(attach_body)
 	
 	if start_head != null:
 		var start = start_head.instantiate()
 		start.name = "bridge_start"
-		start.position = Vector3(-1, 0, 0)	
+		start.position = Vector2(-1, 0)	
 		components.append(start)
 		add_child(start)
 	
@@ -89,7 +90,7 @@ func rebuild():
 		components.append(end)
 		add_child(end)
 	
-func _calculate_catenary(distance):
+func calculate_catenary(distance):
 	#print(a)
 	return a * cosh((distance-p)/a) + q
 	

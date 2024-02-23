@@ -22,7 +22,7 @@ offsets = PackedFloat32Array(0.535047, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="player" type="CharacterBody2D"]
-collision_layer = 2147483649
+collision_layer = 3221225473
 script = ExtResource("1_4xsmg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

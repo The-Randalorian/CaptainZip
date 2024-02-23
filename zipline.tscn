@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyy4t1humyrf0"]
+
+[ext_resource type="Script" path="res://Zipline.gd" id="1_e4um3"]
+[ext_resource type="PackedScene" uid="uid://0fo52veny3im" path="res://zipline_segment.tscn" id="2_xpkv4"]
+
+[node name="Zipline" type="Node2D"]
+script = ExtResource("1_e4um3")
+endpoint = Vector2(180, 90)
+template = ExtResource("2_xpkv4")

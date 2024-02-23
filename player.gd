@@ -16,10 +16,25 @@ func _init():
 	randomize()  # set up the random number generator globally
 
 
+var on_zip = false
+var connected_zipline = null
+
+
+func attach_to_zip(zip):
+	if connected_zipline != zip:
+		on_zip = true
+		connected_zipline = zip
+
+
 func _physics_process(delta):
-	ground_physics_process(delta)
-	
-	
+	if on_zip:
+		zipline_physics_process(delta)
+	else:
+		ground_physics_process(delta)
+
+func zipline_physics_process(delta):
+	position = connected_zipline.position
+
 func ground_physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
