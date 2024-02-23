@@ -5,11 +5,15 @@ extends CharacterBody2D
 const JUMP_VELOCITY = -250.0		# how much initial speed to put into a jump
 const GROUND_SPEED = 300.0			# target speed on the ground
 const GROUND_ACCELERATION = 300.0	# how fast to speed up
-const GROUND_DECELERATION = 500.0	# how fast to slow down
+const GROUND_DECELERATION = 200.0	# how fast to slow down
 const PLATFORMING_FLOAT = 0.5		# how much we want to let the player float or glide by holding space
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+
+func _init():
+	randomize()  # set up the random number generator globally
 
 
 func _physics_process(delta):

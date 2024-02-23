@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7sqd5bbfivkq"]
+
+[ext_resource type="Script" path="res://parrots/parrot.gd" id="1_mt2qn"]
+[ext_resource type="Texture2D" uid="uid://cnut6qop122vw" path="res://parrots/green-blue/parrot1.png" id="2_il8nn"]
+[ext_resource type="Texture2D" uid="uid://c35dt82yudirw" path="res://parrots/green-blue/parrot2.png" id="3_gx4v7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubwrl"]
+radius = 30.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1hbg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_il8nn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gx4v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_il8nn")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[node name="Parrot_00" type="Area2D"]
+collision_layer = 0
+collision_mask = 2147483648
+input_pickable = false
+monitorable = false
+script = ExtResource("1_mt2qn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ubwrl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_j1hbg")
+animation = &"fly"
+frame_progress = 0.160721
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
