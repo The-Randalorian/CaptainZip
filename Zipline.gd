@@ -93,7 +93,21 @@ func rebuild():
 func calculate_catenary(distance):
 	#print(a)
 	return a * cosh((distance-p)/a) + q
-	
+
+func get_snap_height(x):
+	return position.y - calculate_catenary(x - position.x)
+
+const DERIVATIVE_STEP = 0.001
+
+func get_snap_slope(x):
+	var center = x - position.x
+	var rise = calculate_catenary(center + DERIVATIVE_STEP) - calculate_catenary(center - DERIVATIVE_STEP)
+	var run = DERIVATIVE_STEP + DERIVATIVE_STEP
+	return rise / run
+
+func get_snap_slope_vector(x):
+	return Vector2(1.0, get_snap_slope(x)).normalized()
+
 func _bake_catenary():
 	var h = endpoint.x
 	var v = endpoint.y

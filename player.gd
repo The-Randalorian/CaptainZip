@@ -6,34 +6,61 @@ const JUMP_VELOCITY = -250.0		# how much initial speed to put into a jump
 const GROUND_SPEED = 300.0			# target speed on the ground
 const GROUND_ACCELERATION = 300.0	# how fast to speed up
 const GROUND_DECELERATION = 200.0	# how fast to slow down
-const PLATFORMING_FLOAT = 0.5		# how much we want to let the player float or glide by holding space
+const PLATFORMING_FLOAT = 0.4		# how much we want to let the player float or glide by holding space
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var hook_offset = $HookPosition.position
 
 
 func _init():
 	randomize()  # set up the random number generator globally
 
 
-var on_zip = false
-var connected_zipline = null
+var allow_zip = true
+var conn_zip = null
 
 
 func attach_to_zip(zip):
-	if connected_zipline != zip:
-		on_zip = true
-		connected_zipline = zip
+	if conn_zip != zip and allow_zip:
+		#on_zip = true
+		conn_zip = zip
+		var snap_x = clamp(position.x, zip.position.x, zip.position.x+zip.endpoint.x)
+		var snap_pos = Vector2(snap_x, zip.get_snap_height(snap_x))
+		position = snap_pos - hook_offset
+		#var snap_v = zip.get_snap_slope_vector(snap_x)
+		#velocity = snap_v.dot(velocity) * snap_v
 
 
 func _physics_process(delta):
-	if on_zip:
+	if conn_zip != null:
 		zipline_physics_process(delta)
 	else:
 		ground_physics_process(delta)
 
 func zipline_physics_process(delta):
-	position = connected_zipline.position
+	#position = connected_zipline.position
+	
+	velocity.y -= gravity * delta
+	
+	var snap_v = conn_zip.get_snap_slope_vector(position.x)
+	
+	velocity = snap_v.dot(velocity) * snap_v
+	
+	move_and_slide()
+	
+	# correct the position
+	position = Vector2(position.x, conn_zip.get_snap_height(position.x)) - hook_offset
+	
+	if Input.is_action_just_pressed("move_jump"):
+		velocity.y += JUMP_VELOCITY
+		conn_zip = null
+		allow_zip = false
+		$Allow_Zip_Timer.start()
+		return 
+	
+	if position.x + hook_offset.x < conn_zip.position.x or position.x + hook_offset.x > conn_zip.position.x + conn_zip.endpoint.x:
+		conn_zip = null
 
 func ground_physics_process(delta):
 	# Add the gravity.
@@ -64,3 +91,7 @@ func ground_physics_process(delta):
 		$CPUParticles2D.emitting = false
 
 	move_and_slide()
+
+
+func _on_allow_zip_timer_timeout():
+	allow_zip = true
