@@ -4,17 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://15g83efaruls" path="res://image.png" id="2_be6lk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvlgr"]
-radius = 12.0
-height = 58.0
+radius = 8.0
+height = 52.0
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2147483649
 script = ExtResource("1_4xsmg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -26)
 shape = SubResource("CapsuleShape2D_wvlgr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -29)
 texture = ExtResource("2_be6lk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
