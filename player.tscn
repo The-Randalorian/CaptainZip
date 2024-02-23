@@ -1,11 +1,60 @@
-[gd_scene load_steps=7 format=3 uid="uid://cf1mcqjk84msd"]
+[gd_scene load_steps=13 format=3 uid="uid://cf1mcqjk84msd"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4xsmg"]
-[ext_resource type="Texture2D" uid="uid://15g83efaruls" path="res://image.png" id="2_be6lk"]
+[ext_resource type="Texture2D" uid="uid://cj2yatsdiy2jg" path="res://player/piratestand.png" id="2_pbek6"]
+[ext_resource type="Texture2D" uid="uid://dvg8ybodrtibj" path="res://player/piratejump.png" id="3_fpv26"]
+[ext_resource type="Texture2D" uid="uid://bubftoonqmd0q" path="res://player/piratehook.png" id="4_3ym4v"]
+[ext_resource type="Texture2D" uid="uid://tvdbd3a7ubx6" path="res://player/piratewalk1.png" id="4_71n4s"]
+[ext_resource type="Texture2D" uid="uid://ssts6jwx2hya" path="res://player/piratewalk2.png" id="5_fse3n"]
+[ext_resource type="Texture2D" uid="uid://olg8hmwt7nxx" path="res://player/piratewalk3.png" id="6_yakuu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvlgr"]
 radius = 8.0
 height = 52.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u7edy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pbek6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fpv26")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_71n4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fse3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yakuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fse3n")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_3ym4v")
+}],
+"loop": true,
+"name": &"zip",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_bdlb1"]
 colors = PackedColorArray(0.180392, 0.690196, 0.509804, 1, 0.211765, 0.890196, 0.466667, 1)
@@ -29,9 +78,11 @@ script = ExtResource("1_4xsmg")
 position = Vector2(0, -26)
 shape = SubResource("CapsuleShape2D_wvlgr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -29)
-texture = ExtResource("2_be6lk")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_u7edy")
+animation = &"zip"
+frame_progress = 0.393532
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

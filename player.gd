@@ -29,12 +29,15 @@ func attach_to_zip(zip):
 		var snap_x = clamp(position.x, zip.position.x, zip.position.x+zip.endpoint.x)
 		var snap_pos = Vector2(snap_x, zip.get_snap_height(snap_x))
 		position = snap_pos - hook_offset
-		var snap_v = zip.get_snap_slope_vector(snap_x)
+		var snap_v = zip.get_snap_slope_vector(snap_x) * Vector2(1.0, -1.0)
+		print(snap_v)
 		var new_v = snap_v.dot(velocity) * snap_v
 		if new_v.length() < 50:
 			velocity = new_v
 			return
 		velocity = new_v.normalized() * lerp(new_v.length(), velocity.length(), ZIP_ANGLE_FORGIVENESS)
+		$Sprite2D.play("zip")
+		$Sprite2D.position = Vector2(0, -18)
 
 
 func _physics_process(delta):
@@ -42,13 +45,18 @@ func _physics_process(delta):
 		zipline_physics_process(delta)
 	else:
 		ground_physics_process(delta)
+	
+	if velocity.x < -10:
+		$Sprite2D.flip_h = true
+	if velocity.x > 10:
+		$Sprite2D.flip_h = false
 
 func zipline_physics_process(delta):
 	#position = connected_zipline.position
 	
-	velocity.y -= gravity * delta
+	velocity.y += gravity * delta
 	
-	var snap_v = conn_zip.get_snap_slope_vector(position.x)
+	var snap_v = conn_zip.get_snap_slope_vector(position.x) * Vector2(1.0, -1.0)
 	
 	velocity = snap_v.dot(velocity) * snap_v
 	
@@ -62,10 +70,14 @@ func zipline_physics_process(delta):
 		conn_zip = null
 		allow_zip = false
 		$Allow_Zip_Timer.start()
-		return 
+		$Sprite2D.play("jump")
+		$Sprite2D.position = Vector2(0, -40)
+		return
 	
 	if position.x + hook_offset.x < conn_zip.position.x or position.x + hook_offset.x > conn_zip.position.x + conn_zip.endpoint.x:
+		velocity = snap_v.dot(velocity) * snap_v
 		conn_zip = null
+		$Allow_Zip_Timer.start()
 
 func ground_physics_process(delta):
 	# Add the gravity.
@@ -78,6 +90,8 @@ func ground_physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("move_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$Sprite2D.play("jump")
+		$Sprite2D.position = Vector2(0, -40)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -91,6 +105,14 @@ func ground_physics_process(delta):
 		$CPUParticles2D.direction.x = clamp(velocity.x, -1, 1)
 		$CPUParticles2D.color_ramp.colors[0] = Color(Color(1, 1, 1), clamp(abs((velocity.x-50) / 100), 0, 1))
 		$CPUParticles2D.emitting = abs(velocity.x) > 50
+		if abs(velocity.x) > 50:
+			$CPUParticles2D.emitting = true
+			$Sprite2D.play("walk")
+			$Sprite2D.position = Vector2(0, -40)
+		else:
+			$CPUParticles2D.emitting = false
+			$Sprite2D.play("default")
+			$Sprite2D.position = Vector2(0, -40)
 		#$CPUParticles2D.amount = abs(round(velocity.x / 10))
 	else:
 		$CPUParticles2D.emitting = false
