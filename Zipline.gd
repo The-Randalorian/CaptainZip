@@ -4,7 +4,7 @@ class_name Zipline
 
 extends Node2D
 
-const SEGMENT_SIZE = 18
+const SEGMENT_SIZE = 6
 
 @export var endpoint = Vector2(2, 0):
 	set(new_endpoint):
@@ -56,7 +56,7 @@ func rebuild():
 		component.queue_free()
 	components = []
 	_bake_catenary()
-	var ratio = endpoint.x / round(endpoint.x)
+	var ratio = endpoint.x / (floor(endpoint.x / SEGMENT_SIZE) * SEGMENT_SIZE)
 	while len(components) < round(endpoint.x) / SEGMENT_SIZE:
 		var component = template.instantiate()
 		component.name = "bridge_component_" + str(len(components))
