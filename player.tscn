@@ -1,13 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf1mcqjk84msd"]
+[gd_scene load_steps=4 format=3 uid="uid://cf1mcqjk84msd"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4xsmg"]
+[ext_resource type="Texture2D" uid="uid://15g83efaruls" path="res://image.png" id="2_be6lk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvlgr"]
-
-[sub_resource type="Gradient" id="Gradient_q6leg"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0pvug"]
-gradient = SubResource("Gradient_q6leg")
+radius = 12.0
+height = 58.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_4xsmg")
@@ -16,4 +14,7 @@ script = ExtResource("1_4xsmg")
 shape = SubResource("CapsuleShape2D_wvlgr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_0pvug")
+texture = ExtResource("2_be6lk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
