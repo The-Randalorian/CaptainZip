@@ -42,7 +42,7 @@ func _ready():
 	rebuild()
 
 func attach_body(body):
-	print("Body attached!")
+	#print("Body attached!")
 	body.attach_to_zip(self)
 
 func rebuild():
