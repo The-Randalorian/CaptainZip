@@ -42,7 +42,6 @@ shape = SubResource("CircleShape2D_ubwrl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_j1hbg")
-animation = &"fly"
-frame_progress = 0.160721
+frame_progress = 0.773373
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

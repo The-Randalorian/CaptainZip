@@ -17,6 +17,10 @@ func _init():
 
 
 func _physics_process(delta):
+	ground_physics_process(delta)
+	
+	
+func ground_physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		if Input.is_action_pressed("move_jump"):
@@ -35,5 +39,13 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, direction * GROUND_SPEED, GROUND_ACCELERATION * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, GROUND_DECELERATION * delta)
+	
+	if is_on_floor():
+		$CPUParticles2D.direction.x = clamp(velocity.x, -1, 1)
+		$CPUParticles2D.color_ramp.colors[0] = Color(Color(1, 1, 1), clamp(abs((velocity.x-50) / 100), 0, 1))
+		$CPUParticles2D.emitting = abs(velocity.x) > 50
+		#$CPUParticles2D.amount = abs(round(velocity.x / 10))
+	else:
+		$CPUParticles2D.emitting = false
 
 	move_and_slide()

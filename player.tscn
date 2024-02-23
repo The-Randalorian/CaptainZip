@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cf1mcqjk84msd"]
+[gd_scene load_steps=7 format=3 uid="uid://cf1mcqjk84msd"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4xsmg"]
 [ext_resource type="Texture2D" uid="uid://15g83efaruls" path="res://image.png" id="2_be6lk"]
@@ -6,6 +6,20 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvlgr"]
 radius = 8.0
 height = 52.0
+
+[sub_resource type="Gradient" id="Gradient_bdlb1"]
+colors = PackedColorArray(0.180392, 0.690196, 0.509804, 1, 0.211765, 0.890196, 0.466667, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c0ly8"]
+gradient = SubResource("Gradient_bdlb1")
+width = 4
+height = 4
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_6m01f"]
+offsets = PackedFloat32Array(0.535047, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2147483649
@@ -21,3 +35,15 @@ texture = ExtResource("2_be6lk")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = -1
+emitting = false
+lifetime = 0.5
+texture = SubResource("GradientTexture2D_c0ly8")
+particle_flag_align_y = true
+direction = Vector2(1, -1)
+gravity = Vector2(0, 200)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+color_ramp = SubResource("Gradient_6m01f")
