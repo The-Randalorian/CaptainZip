@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btqqybw2pghy4"]
 
-[ext_resource type="Script" path="res://enemy.gd" id="1_lsg75"]
+[ext_resource type="Script" path="res://cowboy.gd" id="1_lsg75"]
 [ext_resource type="Texture2D" uid="uid://0fmhrniegnpv" path="res://cowboy/cowboy2hold.png" id="1_na63m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2um52"]
