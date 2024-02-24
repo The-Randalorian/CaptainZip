@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxgvw3dvrkumo"]
+[gd_scene load_steps=7 format=3 uid="uid://cxgvw3dvrkumo"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_tnrbb"]
 [ext_resource type="PackedScene" uid="uid://c7sqd5bbfivkq" path="res://parrots/red-green/parrot_00.tscn" id="2_jsad4"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="3_y5hip"]
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="4_uwrlc"]
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://enemy.tscn" id="5_lk303"]
+[ext_resource type="AudioStream" uid="uid://kvlr0q5588h6" path="res://Audio/Music/pirate_theme.ogg" id="6_2680f"]
 
 [node name="level" type="Node2D"]
 
@@ -66,3 +67,8 @@ position = Vector2(3066, 1225)
 
 [node name="Enemy01" parent="." instance=ExtResource("5_lk303")]
 position = Vector2(3199, 1226)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2680f")
+autoplay = true
+bus = &"Music"
