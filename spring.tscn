@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6a4g8jjofwlb"]
+
+[ext_resource type="Script" path="res://spring.gd" id="1_y611r"]
+[ext_resource type="Texture2D" uid="uid://b0cwskxbp8k27" path="res://Tilemap/tilemap_packed.png" id="2_2lkjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fd4f"]
+size = Vector2(18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj71v"]
+atlas = ExtResource("2_2lkjq")
+region = Rect2(144, 90, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to0bh"]
+atlas = ExtResource("2_2lkjq")
+region = Rect2(126, 90, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3mod8"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_tj71v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to0bh")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="spring00" type="Area2D"]
+collision_layer = 0
+collision_mask = 2147483648
+script = ExtResource("1_y611r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, -9)
+shape = SubResource("RectangleShape2D_1fd4f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, -9)
+sprite_frames = SubResource("SpriteFrames_3mod8")
+frame = 1
+frame_progress = 1.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
