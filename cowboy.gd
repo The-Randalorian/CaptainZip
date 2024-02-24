@@ -5,17 +5,9 @@ extends Node2D
 
 const shootTime = 0.75;
 
-var canShoot = false;
-
 var timer;
 
 var player;
-
-
-
-func _physics_process(delta):
-	if (canShoot):
-		shoot(player);
 
 func _ready():
 	timer = Timer.new()
@@ -25,7 +17,7 @@ func _ready():
 	add_child(timer) 
 
 func _on_timer_timeout():
-	canShoot = true;
+	shoot(player);
 
 
 
@@ -38,7 +30,6 @@ func _on_area_2d_body_entered(body):
 #player is in shoot range
 func _on_area_2d_2_body_entered(body):
 	#print("player is in shoot range");
-	canShoot = true;
 	player = body;
 	
 	timer.set_wait_time(shootTime);
@@ -50,4 +41,3 @@ func _on_area_2d_2_body_entered(body):
 func shoot(playerObj):
 	$Sprite2D.play("shoot");
 	#turns to face player
-	canShoot = false;

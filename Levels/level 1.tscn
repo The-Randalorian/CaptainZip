@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cbwg7cebxmcht" path="res://background/sky.png" id="8_fy735"]
 [ext_resource type="FontFile" uid="uid://kqcy8katsi5n" path="res://fonts/Handwriting-Regular.otf" id="8_oe2sg"]
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="10_s4lyk"]
-[ext_resource type="PackedScene" uid="uid://ccd7lf64ciqsm" path="res://follow_camera.tscn" id="11_bdmnf"]
+[ext_resource type="PackedScene" path="res://follow_camera.tscn" id="11_bdmnf"]
 [ext_resource type="AudioStream" uid="uid://kvlr0q5588h6" path="res://Audio/Music/pirate_theme.ogg" id="13_2okmc"]
 
 [node name="level" type="Node2D"]
