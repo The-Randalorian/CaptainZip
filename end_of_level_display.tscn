@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cge172ji1w6ub"]
+[gd_scene load_steps=8 format=3 uid="uid://cge172ji1w6ub"]
 
 [ext_resource type="Script" path="res://end_of_level_display.gd" id="1_ynrj8"]
+[ext_resource type="FontFile" uid="uid://b7cb5kg44kvij" path="res://fonts/Halogen.otf" id="2_5o8ig"]
 
 [sub_resource type="Animation" id="Animation_h66lh"]
 resource_name = "RESET"
@@ -28,10 +29,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_0pucf"]
 resource_name = "end_level"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,7 +52,7 @@ tracks/0/path = NodePath("view_blocker:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 2),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
@@ -63,7 +76,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(3),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -97,11 +110,39 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4853j"]
+resource_name = "show_stats"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h3kg7"]
 _data = {
 "RESET": SubResource("Animation_h66lh"),
 "end_level": SubResource("Animation_0pucf"),
+"show_stats": SubResource("Animation_4853j"),
 "start_level": SubResource("Animation_xpg8f")
 }
 
@@ -119,12 +160,91 @@ libraries = {
 "": SubResource("AnimationLibrary_h3kg7")
 }
 
-[node name="view_blocker" type="ColorRect" parent="."]
-visible = false
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 2
+
+[node name="time_text" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("2_5o8ig")
+theme_override_font_sizes/font_size = 30
+text = "Time:"
+
+[node name="time_value" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("2_5o8ig")
+theme_override_font_sizes/font_size = 30
+text = "600 seconds"
+horizontal_alignment = 2
+
+[node name="rank_text" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("2_5o8ig")
+theme_override_font_sizes/font_size = 30
+text = "Rank:"
+
+[node name="rank_value" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("2_5o8ig")
+theme_override_font_sizes/font_size = 30
+text = "600 seconds"
+horizontal_alignment = 2
+
+[node name="continue_label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 13
+theme_override_fonts/font = ExtResource("2_5o8ig")
+theme_override_font_sizes/font_size = 30
+text = "Press Space to Continue"
+horizontal_alignment = 1
+
+[node name="view_blocker" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 88.0
+offset_bottom = 72.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)

@@ -8,7 +8,7 @@ var velocity = Vector2(0.0, 0.0)
 
 const CAMERA_ACCELERATION = 1.80
 const CAMERA_DAMPING = 0.80
-var  camera_offset = Vector2(0, -27)
+var camera_offset = Vector2(0, -27)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
