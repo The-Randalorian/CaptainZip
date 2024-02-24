@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccd7lf64ciqsm"]
+
+[ext_resource type="Script" path="res://follow_camera.gd" id="1_sb6cd"]
+[ext_resource type="PackedScene" uid="uid://cge172ji1w6ub" path="res://end_of_level_display.tscn" id="2_ss42k"]
+
+[node name="follow_camera" type="Camera2D"]
+zoom = Vector2(2, 2)
+script = ExtResource("1_sb6cd")
+player_object_path = NodePath("../player")
+
+[node name="transition_handler" parent="." instance=ExtResource("2_ss42k")]
+z_index = 100
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+grow_horizontal = 1
+grow_vertical = 1

@@ -49,6 +49,7 @@ func attach_body(body):
 	if level_camera:
 		level_camera.player_object = self
 		level_camera.camera_offset = Vector2(0, 0)
+		level_camera.end_level()
 		#get_tree().call_deferred("reload_current_scene")
 
 func rebuild():

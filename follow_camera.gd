@@ -25,3 +25,6 @@ func _process(delta):
 	velocity *= CAMERA_DAMPING
 	
 	global_position += velocity * delta
+
+func end_level():
+	$transition_handler.end_level()
