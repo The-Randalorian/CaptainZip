@@ -31,6 +31,8 @@ const SEGMENT_SIZE = 6
 		end_head = new_end_head
 		rebuild()
 
+@export var is_level_end = false
+
 var components = []
 var a = 0.0
 var p = 0.0
@@ -44,6 +46,8 @@ func _ready():
 func attach_body(body):
 	#print("Body attached!")
 	body.attach_to_zip(self)
+	if is_level_end:
+		get_tree().reload_current_scene()
 
 func rebuild():
 	if template == null:
