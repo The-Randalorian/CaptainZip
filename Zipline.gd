@@ -31,7 +31,7 @@ const SEGMENT_SIZE = 6
 		end_head = new_end_head
 		rebuild()
 
-@export var is_level_end = false
+@export var level_camera: Camera2D
 
 var components = []
 var a = 0.0
@@ -46,8 +46,10 @@ func _ready():
 func attach_body(body):
 	#print("Body attached!")
 	body.attach_to_zip(self)
-	if is_level_end:
-		get_tree().call_deferred("reload_current_scene")
+	if level_camera:
+		level_camera.player_object = self
+		level_camera.camera_offset = Vector2(0, 0)
+		#get_tree().call_deferred("reload_current_scene")
 
 func rebuild():
 	if template == null:

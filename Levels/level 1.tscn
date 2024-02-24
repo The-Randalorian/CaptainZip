@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=13 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="2_c8svj"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cbwg7cebxmcht" path="res://background/sky.png" id="8_fy735"]
 [ext_resource type="FontFile" uid="uid://kqcy8katsi5n" path="res://fonts/Handwriting-Regular.otf" id="8_oe2sg"]
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://enemy.tscn" id="10_s4lyk"]
+[ext_resource type="Script" path="res://follow_camera.gd" id="11_ndvcs"]
+[ext_resource type="PackedScene" uid="uid://cge172ji1w6ub" path="res://end_of_level_display.tscn" id="12_4thyj"]
 
 [node name="level" type="Node2D"]
 
@@ -88,11 +90,11 @@ position = Vector2(8820, 1359)
 endpoint = Vector2(341.575, -50)
 drop = 1.0
 
-[node name="Zipline12" parent="Ziplines" instance=ExtResource("2_c8svj")]
+[node name="Zipline12" parent="Ziplines" node_paths=PackedStringArray("level_camera") instance=ExtResource("2_c8svj")]
 position = Vector2(9486, 1656)
 endpoint = Vector2(1000, -100)
 drop = 1.0
-is_level_end = true
+level_camera = NodePath("../../follow_camera")
 
 [node name="Parrots" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -386,3 +388,10 @@ text = "HAVE FUN
 
 [node name="player" parent="." instance=ExtResource("7_m5eyv")]
 position = Vector2(-518, 162)
+
+[node name="follow_camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("11_ndvcs")
+player_object_path = NodePath("../player")
+
+[node name="end_of_level_display" parent="follow_camera" instance=ExtResource("12_4thyj")]

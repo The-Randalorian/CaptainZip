@@ -87,6 +87,7 @@ position = Vector2(0, -40)
 sprite_frames = SubResource("SpriteFrames_u7edy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
 zoom = Vector2(2, 2)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]

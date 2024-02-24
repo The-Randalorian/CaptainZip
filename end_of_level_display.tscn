@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cge172ji1w6ub"]
+
+[ext_resource type="Script" path="res://end_of_level_display.gd" id="1_ynrj8"]
+
+[sub_resource type="Animation" id="Animation_h66lh"]
+resource_name = "RESET"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h3kg7"]
+_data = {
+"RESET": SubResource("Animation_h66lh")
+}
+
+[node name="end_of_level_display" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ynrj8")
+
+[node name="view_blocker" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_h3kg7")
+}
