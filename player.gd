@@ -11,11 +11,32 @@ const AIR_DECELERATION = 200		# how fast to slow down in the air
 const PLATFORMING_FLOAT = 0.5		# how much we want to let the player float or glide by holding space
 const ZIP_ANGLE_FORGIVENESS = 0.5	# how much of the players off-angle velocity we want to put into the zipline
 
+const invincibilityTime = 0.5;		#player invincibility time (seconds)
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hook_offset = $HookPosition.position
 
 var playerHealth = 3;
+var invincible = false;
+
+var timer;
+
+#called when node and all children enter scene
+func _ready():
+	timer = Timer.new()
+	timer.connect("timeodut",_on_timer_timeout) 
+	timer.set_wait_time(invincibilityTime) #value is in seconds: 600 seconds = 10 minutes
+	timer.set_one_shot(true);
+	add_child(timer) 
+
+#called when timer reaches zero
+func _on_timer_timeout():
+	#print("on timer function called");
+	invincible = false;
+	#timer.reset() if needed?
+	
+	#your timer events start here
 
 
 func _init():
@@ -55,6 +76,9 @@ func _physics_process(delta):
 		zipline_physics_process(delta)
 	else:
 		ground_physics_process(delta)
+		
+	if timer.get_time_left() == 0:
+		_on_timer_timeout();
 
 func zipline_physics_process(delta):
 	#position = connected_zipline.position
@@ -152,6 +176,14 @@ func ground_physics_process(delta):
 func _on_allow_zip_timer_timeout():
 	allow_zip = true
 	
+func playerHit():
+	#print(invincible);
+	
+	if !invincible:
+		playerHealth -= 1;
+		timer.set_wait_time(invincibilityTime);
+		timer.start();
+		invincible = true;
 	
 func playerDeath():
 	get_tree().reload_current_scene();

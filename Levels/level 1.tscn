@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=14 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="2_c8svj"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://enemy.tscn" id="10_s4lyk"]
 [ext_resource type="Script" path="res://follow_camera.gd" id="11_ndvcs"]
 [ext_resource type="PackedScene" uid="uid://cge172ji1w6ub" path="res://end_of_level_display.tscn" id="12_4thyj"]
+[ext_resource type="AudioStream" uid="uid://kvlr0q5588h6" path="res://Audio/Music/pirate_theme.ogg" id="13_2okmc"]
 
 [node name="level" type="Node2D"]
 
@@ -395,3 +396,7 @@ script = ExtResource("11_ndvcs")
 player_object_path = NodePath("../player")
 
 [node name="end_of_level_display" parent="follow_camera" instance=ExtResource("12_4thyj")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_2okmc")
+autoplay = true
