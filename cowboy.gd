@@ -19,7 +19,7 @@ func _physics_process(delta):
 
 func _ready():
 	timer = Timer.new()
-	timer.connect("timeodut",_on_timer_timeout) 
+	timer.connect("timeout",_on_timer_timeout) 
 	timer.set_wait_time(shootTime) #value is in seconds: 600 seconds = 10 minutes
 	timer.set_one_shot(true);
 	add_child(timer) 
