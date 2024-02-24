@@ -15,6 +15,8 @@ const ZIP_ANGLE_FORGIVENESS = 0.5	# how much of the players off-angle velocity w
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hook_offset = $HookPosition.position
 
+var playerHealth = 3;
+
 
 func _init():
 	randomize()  # set up the random number generator globally
@@ -45,6 +47,9 @@ func attach_to_zip(zip):
 
 
 func _physics_process(delta):
+	if playerHealth <= 0:
+		playerDeath();
+	
 	if conn_zip != null:
 		zipline_physics_process(delta)
 	else:
@@ -136,3 +141,7 @@ func ground_physics_process(delta):
 
 func _on_allow_zip_timer_timeout():
 	allow_zip = true
+	
+	
+func playerDeath():
+	get_tree().reload_current_scene();

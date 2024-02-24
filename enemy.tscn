@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2um52"]
 size = Vector2(34, 46)
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy00" type="Node2D"]
 position = Vector2(-147, -6)
 script = ExtResource("1_lsg75")
 
