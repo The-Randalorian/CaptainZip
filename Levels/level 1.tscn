@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=11 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="2_c8svj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="7_m5eyv"]
 [ext_resource type="Texture2D" uid="uid://cbwg7cebxmcht" path="res://background/sky.png" id="8_fy735"]
 [ext_resource type="FontFile" uid="uid://kqcy8katsi5n" path="res://fonts/Handwriting-Regular.otf" id="8_oe2sg"]
+[ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://enemy.tscn" id="10_s4lyk"]
 
 [node name="level" type="Node2D"]
 
@@ -32,6 +33,7 @@ layer_0/tile_data = PackedInt32Array(786440, 262146, 5, 786441, 131074, 6, 78644
 metadata/_edit_lock_ = true
 
 [node name="Ziplines" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Zipline" parent="Ziplines" instance=ExtResource("2_c8svj")]
 position = Vector2(935, 19)
@@ -93,6 +95,7 @@ drop = 1.0
 is_level_end = true
 
 [node name="Parrots" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Parrot_00" parent="Parrots" instance=ExtResource("3_4gcht")]
 position = Vector2(144, 162)
@@ -205,6 +208,7 @@ position = Vector2(558, 252)
 position = Vector2(180, 162)
 
 [node name="Springs" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="spring00" parent="Springs" instance=ExtResource("6_j3313")]
 position = Vector2(1818, 198)
@@ -224,6 +228,45 @@ strength = 750
 [node name="spring04" parent="Springs" instance=ExtResource("6_j3313")]
 position = Vector2(6786, 1485)
 strength = 750
+
+[node name="Cowboys" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Enemy00" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(7146, 1665)
+
+[node name="Enemy01" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(7362, 1647)
+
+[node name="Enemy02" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(6702, 1722)
+
+[node name="Enemy03" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(6378, 1722)
+
+[node name="Enemy04" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(6135, 1704)
+
+[node name="Enemy05" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(5856, 1704)
+
+[node name="Enemy06" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(5838, 1416)
+
+[node name="Enemy07" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(6828, 1452)
+
+[node name="Enemy08" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(6408, 1125)
+
+[node name="Enemy09" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(6354, 1125)
+
+[node name="Enemy10" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(4272, 1056)
+
+[node name="Enemy11" parent="Cowboys" instance=ExtResource("10_s4lyk")]
+position = Vector2(3984, 1020)
 
 [node name="hint00" type="Label" parent="."]
 offset_left = -513.0
