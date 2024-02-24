@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfad2t513mfb4"]
+[gd_scene load_steps=6 format=3 uid="uid://bfad2t513mfb4"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_tnrbb"]
 [ext_resource type="PackedScene" uid="uid://c7sqd5bbfivkq" path="res://parrots/red-green/parrot_00.tscn" id="2_jsad4"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="3_y5hip"]
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="4_uwrlc"]
+[ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://enemy.tscn" id="5_lk303"]
 
 [node name="level" type="Node2D"]
 
@@ -59,3 +60,9 @@ endpoint = Vector2(180, -427.135)
 
 [node name="player" parent="." instance=ExtResource("4_uwrlc")]
 position = Vector2(206, 113)
+
+[node name="Enemy00" parent="." instance=ExtResource("5_lk303")]
+position = Vector2(3066, 1225)
+
+[node name="Enemy01" parent="." instance=ExtResource("5_lk303")]
+position = Vector2(3199, 1226)
