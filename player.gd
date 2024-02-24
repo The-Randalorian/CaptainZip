@@ -40,6 +40,8 @@ func attach_to_zip(zip):
 		velocity = new_v.normalized() * lerp(new_v.length(), velocity.length(), ZIP_ANGLE_FORGIVENESS)
 		$Sprite2D.play("zip")
 		$Sprite2D.position = Vector2(0, -18)
+		allow_zip = false
+		$Allow_Zip_Timer.start()
 
 
 func _physics_process(delta):
