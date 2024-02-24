@@ -44,6 +44,7 @@ func attach_to_zip(zip):
 		$Sprite2D.position = Vector2(0, -18)
 		allow_zip = false
 		$Allow_Zip_Timer.start()
+		$CPUParticles2D.emitting = false
 
 
 func _physics_process(delta):
@@ -131,14 +132,19 @@ func ground_physics_process(delta):
 		$CPUParticles2D.emitting = false
 	
 	# Handle jump.
-	if Input.is_action_pressed("move_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		if !Input.is_action_just_pressed("move_jump"):
+	#if Input.is_action_pressed("move_jump"):
+	if is_on_floor():
+		if Input.is_action_just_pressed("move_jump"):
+			velocity.y = JUMP_VELOCITY
+			$Sprite2D.play("jump")
+			$Sprite2D.position = Vector2(0, -40)
+		elif not $Jump_Limit_Timer.is_stopped():
+			velocity.y = JUMP_VELOCITY
 			$Sprite2D.play("default")
-			$Sprite2D.play("jump")
-		else:
-			$Sprite2D.play("jump")
-		$Sprite2D.position = Vector2(0, -40)
+			$Sprite2D.position = Vector2(0, -40)
+			$Jump_Anim_Delay_Timer.start()
+	elif Input.is_action_just_pressed("move_jump"):
+		$Jump_Limit_Timer.start()
 
 	move_and_slide()
 
@@ -149,3 +155,8 @@ func _on_allow_zip_timer_timeout():
 	
 func playerDeath():
 	get_tree().reload_current_scene();
+
+
+func _on_jump_anim_delay_timer_timeout():
+	$Sprite2D.play("jump")
+	$Sprite2D.position = Vector2(0, -40)

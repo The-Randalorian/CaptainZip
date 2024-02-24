@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://x77dgmvoxvas"]
+[gd_scene load_steps=9 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="1_jqs0m"]
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_vfrow"]
@@ -211,4 +211,3 @@ position = Vector2(-462, 79)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_13axc")
 autoplay = true
-bus = &"Music"

@@ -111,4 +111,13 @@ position = Vector2(0, -50)
 wait_time = 0.4
 one_shot = true
 
+[node name="Jump_Anim_Delay_Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Jump_Limit_Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="Allow_Zip_Timer" to="." method="_on_allow_zip_timer_timeout"]
+[connection signal="timeout" from="Jump_Anim_Delay_Timer" to="." method="_on_jump_anim_delay_timer_timeout"]
