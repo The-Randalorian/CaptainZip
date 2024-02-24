@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="7_m5eyv"]
 [ext_resource type="Texture2D" uid="uid://cbwg7cebxmcht" path="res://background/sky.png" id="8_fy735"]
 [ext_resource type="FontFile" uid="uid://kqcy8katsi5n" path="res://fonts/Handwriting-Regular.otf" id="8_oe2sg"]
-[ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://enemy.tscn" id="10_s4lyk"]
+[ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="10_s4lyk"]
 [ext_resource type="Script" path="res://follow_camera.gd" id="11_ndvcs"]
 [ext_resource type="PackedScene" uid="uid://cge172ji1w6ub" path="res://end_of_level_display.tscn" id="12_4thyj"]
 [ext_resource type="AudioStream" uid="uid://kvlr0q5588h6" path="res://Audio/Music/pirate_theme.ogg" id="13_2okmc"]

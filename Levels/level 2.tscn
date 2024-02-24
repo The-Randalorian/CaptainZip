@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7sqd5bbfivkq" path="res://parrots/red-green/parrot_00.tscn" id="2_jsad4"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="3_y5hip"]
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="4_uwrlc"]
-[ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://enemy.tscn" id="5_lk303"]
+[ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="5_lk303"]
 [ext_resource type="AudioStream" uid="uid://kvlr0q5588h6" path="res://Audio/Music/pirate_theme.ogg" id="6_4jrul"]
 
 [node name="level" type="Node2D"]
