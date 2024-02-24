@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfad2t513mfb4"]
+[gd_scene load_steps=5 format=3 uid="uid://db17j3o56y40p"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_tnrbb"]
 [ext_resource type="PackedScene" uid="uid://c7sqd5bbfivkq" path="res://parrots/red-green/parrot_00.tscn" id="2_jsad4"]
