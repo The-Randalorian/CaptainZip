@@ -47,7 +47,7 @@ func attach_body(body):
 	#print("Body attached!")
 	body.attach_to_zip(self)
 	if is_level_end:
-		get_tree().reload_current_scene()
+		get_tree().call_deferred("reload_current_scene")
 
 func rebuild():
 	if template == null:
