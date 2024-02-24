@@ -205,4 +205,4 @@ position = Vector2(6786, 1485)
 strength = 750
 
 [node name="player" parent="." instance=ExtResource("1_jqs0m")]
-position = Vector2(6867, 1710)
+position = Vector2(-345, 105)
