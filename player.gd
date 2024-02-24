@@ -15,6 +15,8 @@ const ZIP_ANGLE_FORGIVENESS = 0.5	# how much of the players off-angle velocity w
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hook_offset = $HookPosition.position
 
+var playerHealth = 3;
+
 
 func _init():
 	randomize()  # set up the random number generator globally
@@ -42,9 +44,13 @@ func attach_to_zip(zip):
 		$Sprite2D.position = Vector2(0, -18)
 		allow_zip = false
 		$Allow_Zip_Timer.start()
+		$CPUParticles2D.emitting = false
 
 
 func _physics_process(delta):
+	if playerHealth <= 0:
+		playerDeath();
+	
 	if conn_zip != null:
 		zipline_physics_process(delta)
 	else:
@@ -126,13 +132,31 @@ func ground_physics_process(delta):
 		$CPUParticles2D.emitting = false
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		$Sprite2D.play("jump")
-		$Sprite2D.position = Vector2(0, -40)
+	#if Input.is_action_pressed("move_jump"):
+	if is_on_floor():
+		if Input.is_action_just_pressed("move_jump"):
+			velocity.y = JUMP_VELOCITY
+			$Sprite2D.play("jump")
+			$Sprite2D.position = Vector2(0, -40)
+		elif not $Jump_Limit_Timer.is_stopped():
+			velocity.y = JUMP_VELOCITY
+			$Sprite2D.play("default")
+			$Sprite2D.position = Vector2(0, -40)
+			$Jump_Anim_Delay_Timer.start()
+	elif Input.is_action_just_pressed("move_jump"):
+		$Jump_Limit_Timer.start()
 
 	move_and_slide()
 
 
 func _on_allow_zip_timer_timeout():
 	allow_zip = true
+	
+	
+func playerDeath():
+	get_tree().reload_current_scene();
+
+
+func _on_jump_anim_delay_timer_timeout():
+	$Sprite2D.play("jump")
+	$Sprite2D.position = Vector2(0, -40)
