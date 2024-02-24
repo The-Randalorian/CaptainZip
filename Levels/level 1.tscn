@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=10 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="2_c8svj"]
@@ -7,8 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://bioced062wb3l" path="res://parrots/gray-blue/parrot_00.tscn" id="5_4qfw0"]
 [ext_resource type="PackedScene" uid="uid://b6a4g8jjofwlb" path="res://spring.tscn" id="6_j3313"]
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="7_m5eyv"]
+[ext_resource type="Texture2D" uid="uid://cbwg7cebxmcht" path="res://background/sky.png" id="8_fy735"]
+[ext_resource type="FontFile" uid="uid://kqcy8katsi5n" path="res://fonts/Handwriting-Regular.otf" id="8_oe2sg"]
 
 [node name="level" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_repeat = 2
+position = Vector2(-737, -568)
+texture = ExtResource("8_fy735")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 12000, 3000)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_y2b1i")
@@ -204,5 +219,121 @@ strength = 750
 position = Vector2(6786, 1485)
 strength = 750
 
+[node name="hint00" type="Label" parent="."]
+offset_left = -513.0
+offset_top = 171.0
+offset_right = -366.0
+offset_bottom = 230.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "A and D
+     to move"
+
+[node name="hint01" type="Label" parent="."]
+offset_left = -216.0
+offset_top = 171.0
+offset_right = -69.0
+offset_bottom = 230.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "Tap Space
+     to jump"
+
+[node name="hint02" type="Label" parent="."]
+offset_left = 279.0
+offset_top = 171.0
+offset_right = 520.0
+offset_bottom = 230.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "Hold Space
+  to jump further..."
+
+[node name="hint03" type="Label" parent="."]
+offset_left = 684.0
+offset_top = 171.0
+offset_right = 925.0
+offset_bottom = 230.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "... or higher"
+
+[node name="hint04" type="Label" parent="."]
+offset_left = 801.0
+offset_top = 99.0
+offset_right = 1042.0
+offset_bottom = 158.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "Touch ropes
+     to zipline
+         down"
+
+[node name="hint05" type="Label" parent="."]
+offset_left = 1485.0
+offset_top = 171.0
+offset_right = 1726.0
+offset_bottom = 230.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "Tap Space
+     to jump off"
+
+[node name="hint06" type="Label" parent="."]
+offset_left = 1746.0
+offset_top = 207.0
+offset_right = 1987.0
+offset_bottom = 266.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "Touch bounce pads
+     to go REALLY high"
+
+[node name="hint07" type="Label" parent="."]
+offset_left = 1881.0
+offset_top = 9.0
+offset_right = 2122.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "And of course..."
+
+[node name="hint08" type="Label" parent="."]
+offset_left = 2160.0
+offset_top = 9.0
+offset_right = 2401.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = ExtResource("8_oe2sg")
+theme_override_font_sizes/font_size = 24
+text = "HAVE FUN
+  GET HOOKED!"
+
 [node name="player" parent="." instance=ExtResource("7_m5eyv")]
-position = Vector2(-345, 105)
+position = Vector2(-518, 162)
