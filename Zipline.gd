@@ -63,7 +63,7 @@ func rebuild():
 		var distance = ratio * len(components) * SEGMENT_SIZE
 		var height = -1 * calculate_catenary(distance)
 		var delta = -1 * calculate_catenary(distance + ratio) - height
-		print(distance, ", ", height, ", ", ratio)
+		#print(distance, ", ", height, ", ", ratio)
 		component.position = Vector2(
 			distance, 
 			height)

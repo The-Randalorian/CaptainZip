@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cf1mcqjk84msd"]
+[gd_scene load_steps=14 format=3 uid="uid://cf1mcqjk84msd"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4xsmg"]
 [ext_resource type="Texture2D" uid="uid://cj2yatsdiy2jg" path="res://player/piratestand.png" id="2_pbek6"]
@@ -66,6 +66,10 @@ height = 4
 fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Curve" id="Curve_mw5cy"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.149123, 1), 0.0, 0.0, 0, 0, Vector2(0.412281, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
 [sub_resource type="Gradient" id="Gradient_6m01f"]
 offsets = PackedFloat32Array(0.535047, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -82,7 +86,7 @@ shape = SubResource("CapsuleShape2D_wvlgr")
 position = Vector2(0, -18)
 sprite_frames = SubResource("SpriteFrames_u7edy")
 animation = &"zip"
-frame_progress = 0.393532
+frame_progress = 0.298568
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -92,11 +96,14 @@ z_index = -1
 emitting = false
 lifetime = 0.5
 texture = SubResource("GradientTexture2D_c0ly8")
+emission_shape = 3
+emission_rect_extents = Vector2(9, 1)
 particle_flag_align_y = true
 direction = Vector2(1, -1)
 gravity = Vector2(0, 200)
 initial_velocity_min = 100.0
 initial_velocity_max = 100.0
+scale_amount_curve = SubResource("Curve_mw5cy")
 color_ramp = SubResource("Gradient_6m01f")
 
 [node name="HookPosition" type="Node2D" parent="."]

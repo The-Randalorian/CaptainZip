@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 
 
-const JUMP_VELOCITY = -250.0		# how much initial speed to put into a jump
+const JUMP_VELOCITY = -300.0		# how much initial speed to put into a jump
 const GROUND_SPEED = 300.0			# target speed on the ground
-const GROUND_ACCELERATION = 300.0	# how fast to speed up
-const GROUND_DECELERATION = 200.0	# how fast to slow down
-const PLATFORMING_FLOAT = 0.4		# how much we want to let the player float or glide by holding space
+const GROUND_ACCELERATION = 0.05	# how fast to speed up on the ground
+const GROUND_DECELERATION = 0.15	# how fast to slow down on the ground
+const AIR_ACCELERATION = 300		# how fast to speed up in the air
+const AIR_DECELERATION = 200		# how fast to slow down in the air
+const PLATFORMING_FLOAT = 0.5		# how much we want to let the player float or glide by holding space
 const ZIP_ANGLE_FORGIVENESS = 0.5	# how much of the players off-angle velocity we want to put into the zipline
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -30,7 +32,7 @@ func attach_to_zip(zip):
 		var snap_pos = Vector2(snap_x, zip.get_snap_height(snap_x))
 		position = snap_pos - hook_offset
 		var snap_v = zip.get_snap_slope_vector(snap_x) * Vector2(1.0, -1.0)
-		print(snap_v)
+		#print(snap_v)
 		var new_v = snap_v.dot(velocity) * snap_v
 		if new_v.length() < 50:
 			velocity = new_v
@@ -45,11 +47,6 @@ func _physics_process(delta):
 		zipline_physics_process(delta)
 	else:
 		ground_physics_process(delta)
-	
-	if velocity.x < -10:
-		$Sprite2D.flip_h = true
-	if velocity.x > 10:
-		$Sprite2D.flip_h = false
 
 func zipline_physics_process(delta):
 	#position = connected_zipline.position
@@ -78,6 +75,11 @@ func zipline_physics_process(delta):
 		velocity = snap_v.dot(velocity) * snap_v
 		conn_zip = null
 		$Allow_Zip_Timer.start()
+	
+	if velocity.x < -10:
+		$Sprite2D.flip_h = true
+	if velocity.x > 10:
+		$Sprite2D.flip_h = false
 
 func ground_physics_process(delta):
 	# Add the gravity.
@@ -96,12 +98,18 @@ func ground_physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = move_toward(velocity.x, direction * GROUND_SPEED, GROUND_ACCELERATION * delta)
-	else:
-		velocity.x = move_toward(velocity.x, 0, GROUND_DECELERATION * delta)
 	
+	if direction < -0.05:
+		$Sprite2D.flip_h = true
+	if direction > 0.05:
+		$Sprite2D.flip_h = false
+		
 	if is_on_floor():
+		if direction:
+			velocity.x = lerp(velocity.x, float(direction * GROUND_SPEED), GROUND_ACCELERATION * delta * 60)
+		else:
+			velocity.x = lerp(velocity.x, 0.0, GROUND_DECELERATION * delta * 60)
+		
 		$CPUParticles2D.direction.x = clamp(velocity.x, -1, 1)
 		$CPUParticles2D.color_ramp.colors[0] = Color(Color(1, 1, 1), clamp(abs((velocity.x-50) / 100), 0, 1))
 		$CPUParticles2D.emitting = abs(velocity.x) > 50
@@ -115,6 +123,10 @@ func ground_physics_process(delta):
 			$Sprite2D.position = Vector2(0, -40)
 		#$CPUParticles2D.amount = abs(round(velocity.x / 10))
 	else:
+		if direction:
+			velocity.x = move_toward(velocity.x, float(direction * GROUND_SPEED), AIR_ACCELERATION * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0.0, AIR_DECELERATION * delta)
 		$CPUParticles2D.emitting = false
 
 	move_and_slide()

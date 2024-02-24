@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7sqd5bbfivkq"]
 
 [ext_resource type="Script" path="res://parrots/parrot.gd" id="1_mt2qn"]
-[ext_resource type="Texture2D" uid="uid://cnut6qop122vw" path="res://parrots/green-blue/parrot1.png" id="2_il8nn"]
-[ext_resource type="Texture2D" uid="uid://c35dt82yudirw" path="res://parrots/green-blue/parrot2.png" id="3_gx4v7"]
+[ext_resource type="Texture2D" uid="uid://dcpingrvbvg8g" path="res://parrots/red-green/bird1sit.png" id="2_qt1cf"]
+[ext_resource type="Texture2D" uid="uid://cpkdux4trh4b5" path="res://parrots/red-green/bird1fly.png" id="3_tw5w2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ubwrl"]
 radius = 30.0
@@ -11,7 +11,7 @@ radius = 30.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_il8nn")
+"texture": ExtResource("2_qt1cf")
 }],
 "loop": true,
 "name": &"default",
@@ -19,10 +19,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_gx4v7")
+"texture": ExtResource("3_tw5w2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_il8nn")
+"texture": ExtResource("2_qt1cf")
 }],
 "loop": true,
 "name": &"fly",
@@ -42,6 +42,6 @@ shape = SubResource("CircleShape2D_ubwrl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
 sprite_frames = SubResource("SpriteFrames_j1hbg")
-frame_progress = 0.773373
+frame_progress = 0.399219
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
