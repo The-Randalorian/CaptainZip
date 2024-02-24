@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://btqqybw2pghy4"]
+[gd_scene load_steps=5 format=3 uid="uid://btqqybw2pghy4"]
 
 [ext_resource type="Script" path="res://cowboy.gd" id="1_lsg75"]
 [ext_resource type="Texture2D" uid="uid://0fmhrniegnpv" path="res://cowboy/cowboy2hold.png" id="1_na63m"]
-[ext_resource type="Texture2D" uid="uid://2dwf78h8j15k" path="res://cowboy/cowboy2fire.png" id="2_ii2eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2um52"]
 size = Vector2(34, 46)
@@ -10,28 +9,12 @@ size = Vector2(34, 46)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eo1t"]
 size = Vector2(34, 46)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_04lsq"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_na63m")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ii2eo")
-}],
-"loop": true,
-"name": &"shoot",
-"speed": 5.0
-}]
-
 [node name="Enemy00" type="Node2D"]
 position = Vector2(-147, -6)
 script = ExtResource("1_lsg75")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_na63m")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -47,9 +30,6 @@ shape = SubResource("RectangleShape2D_2um52")
 position = Vector2(10, 0)
 scale = Vector2(13.1277, 1)
 shape = SubResource("RectangleShape2D_5eo1t")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_04lsq")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]
