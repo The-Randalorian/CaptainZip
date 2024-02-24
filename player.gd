@@ -131,9 +131,13 @@ func ground_physics_process(delta):
 		$CPUParticles2D.emitting = false
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+	if Input.is_action_pressed("move_jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$Sprite2D.play("jump")
+		if !Input.is_action_just_pressed("move_jump"):
+			$Sprite2D.play("default")
+			$Sprite2D.play("jump")
+		else:
+			$Sprite2D.play("jump")
 		$Sprite2D.position = Vector2(0, -40)
 
 	move_and_slide()
