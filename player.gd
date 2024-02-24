@@ -89,12 +89,6 @@ func ground_physics_process(delta):
 		else:
 			velocity.y += gravity * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		$Sprite2D.play("jump")
-		$Sprite2D.position = Vector2(0, -40)
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
@@ -128,6 +122,12 @@ func ground_physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0.0, AIR_DECELERATION * delta)
 		$CPUParticles2D.emitting = false
+	
+	# Handle jump.
+	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		$Sprite2D.play("jump")
+		$Sprite2D.position = Vector2(0, -40)
 
 	move_and_slide()
 
