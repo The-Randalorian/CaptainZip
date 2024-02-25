@@ -30,6 +30,6 @@ func _physics_process(delta):
 func crabDeath():
 	$Sprite2D/Area2D.set_deferred("monitoring", false)
 	$Sprite2D/Area2D.set_deferred("monitorable", false)
-	$AnimationPlayer.stop()
+	$AnimationPlayer.pause()
 	dead = true
 	velocity = Vector2(randf_range(-160, 160), -240)
