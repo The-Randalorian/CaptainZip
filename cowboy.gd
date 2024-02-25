@@ -55,6 +55,10 @@ func shoot(playerObj):
 	#automatically spawns at cowboy's location
 	add_child(bulletNode);  # add it to the current node
 	
+	#makes it look like it's coming out of cowboy's gun
+	bulletNode.position.x -= 25;
+	bulletNode.position.y -= 11;
+	
 	timer2.set_wait_time(cooldownTime);
 	timer2.start();
 	#turns to face player
