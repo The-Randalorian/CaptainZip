@@ -602,7 +602,7 @@ tilemap = NodePath("../TileMap")
 
 [node name="follow_camera" parent="." instance=ExtResource("13_tajbt")]
 position = Vector2(-522, 135)
-next_level = "res://Levels/main menu.tscn"
+next_level = "res://Levels/game_end.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_yieun")
