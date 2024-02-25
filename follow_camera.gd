@@ -16,6 +16,7 @@ func _ready():
 	player_object = get_node(player_object_path)
 	global_position = player_object.global_position + camera_offset
 	$transition_handler.visible = true
+	$whistle.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,5 +29,10 @@ func _process(delta):
 	
 	global_position += velocity * delta
 
+var level_running = true
+
 func end_level():
-	$transition_handler.end_level(next_level)
+	if level_running:
+		$transition_handler.end_level(next_level)
+		$gong.play()
+		level_running = false

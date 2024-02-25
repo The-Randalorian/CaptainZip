@@ -10,6 +10,7 @@ func _on_body_entered(body):
 		body.velocity.y = -strength
 		allow_spring = false
 		$AnimatedSprite2D.play("default")
+		$boing.play()
 
 
 func _on_animated_sprite_2d_animation_finished():

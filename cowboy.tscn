@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://btqqybw2pghy4"]
+[gd_scene load_steps=8 format=3 uid="uid://btqqybw2pghy4"]
 
 [ext_resource type="Script" path="res://cowboy.gd" id="1_lsg75"]
 [ext_resource type="Texture2D" uid="uid://0fmhrniegnpv" path="res://cowboy/cowboy2hold.png" id="1_na63m"]
 [ext_resource type="Texture2D" uid="uid://2dwf78h8j15k" path="res://cowboy/cowboy2fire.png" id="2_ii2eo"]
+[ext_resource type="AudioStream" uid="uid://c05k2k2d5kvui" path="res://Audio/SFX/gunfire.ogg" id="4_sq57e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dlhu0"]
 radius = 9.0
@@ -52,6 +53,11 @@ shape = SubResource("RectangleShape2D_5eo1t")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-9, -23)
 sprite_frames = SubResource("SpriteFrames_04lsq")
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sq57e")
+max_distance = 700.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6a4g8jjofwlb"]
+[gd_scene load_steps=8 format=3 uid="uid://b6a4g8jjofwlb"]
 
 [ext_resource type="Script" path="res://spring.gd" id="1_y611r"]
 [ext_resource type="Texture2D" uid="uid://ctnxo4jstg2j8" path="res://Tilemap/SipMap.png" id="2_vd3vy"]
+[ext_resource type="AudioStream" uid="uid://t2tkwvqt2dnq" path="res://Audio/SFX/snd_boing2.ogg" id="3_0twrd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fd4f"]
 size = Vector2(36, 18)
@@ -41,6 +42,10 @@ shape = SubResource("RectangleShape2D_1fd4f")
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_3mod8")
 frame_progress = 1.0
+
+[node name="boing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0twrd")
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

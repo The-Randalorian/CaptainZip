@@ -107,6 +107,7 @@ func zipline_physics_process(delta):
 	
 	if Input.is_action_just_pressed("move_jump"):
 		velocity.y += JUMP_VELOCITY
+		$jump.play()
 		conn_zip = null
 		allow_zip = false
 		$Allow_Zip_Timer.start()
@@ -116,6 +117,7 @@ func zipline_physics_process(delta):
 	
 	if position.x + hook_offset.x < conn_zip.position.x or position.x + hook_offset.x > conn_zip.position.x + conn_zip.endpoint.x:
 		velocity = snap_v.dot(velocity) * snap_v
+		$whoosh.play()
 		conn_zip = null
 		$Allow_Zip_Timer.start()
 	
@@ -171,6 +173,7 @@ func ground_physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("move_jump"):
 			velocity.y = JUMP_VELOCITY
+			$jump.play()
 			$Sprite2D.play("jump")
 			$Sprite2D.position = Vector2(0, -40)
 		elif not $Jump_Limit_Timer.is_stopped():

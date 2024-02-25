@@ -19,7 +19,6 @@
 [node name="level" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-visible = false
 
 [node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.125, 0.125)
@@ -603,7 +602,7 @@ tilemap = NodePath("../TileMap")
 
 [node name="follow_camera" parent="." instance=ExtResource("13_tajbt")]
 position = Vector2(-522, 135)
-next_level = "res://level 2.tscn"
+next_level = "res://Levels/main menu.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_yieun")

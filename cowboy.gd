@@ -55,6 +55,7 @@ func _on_area_2d_2_body_entered(body):
 	#shoot(body);
 		
 func shoot(playerObj):
+	$shoot.play()
 	$Sprite2D.play("shoot");
 	var bulletNode = bulletScene.instantiate();
 	#automatically spawns at cowboy's location
