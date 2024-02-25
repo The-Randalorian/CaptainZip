@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc431af2xqit7"]
+[gd_scene load_steps=12 format=3 uid="uid://bc431af2xqit7"]
 
 [ext_resource type="Script" path="res://Misc_Scripts/Options.gd" id="1_qrg1t"]
 [ext_resource type="Texture2D" uid="uid://d3ktea5t51slb" path="res://background/main-menu.png" id="2_130bb"]
 [ext_resource type="Script" path="res://Misc_Scripts/MoveLeft.gd" id="2_pypyb"]
 [ext_resource type="FontFile" uid="uid://b7cb5kg44kvij" path="res://fonts/Halogen.otf" id="3_lddbu"]
+[ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint.gd" id="4_e6bua"]
 [ext_resource type="AudioStream" uid="uid://hphxla1l3ym4" path="res://Audio/Music/menu-music.ogg" id="5_r24q3"]
+[ext_resource type="Script" path="res://Misc_Scripts/move_left_label.gd" id="6_rwjx7"]
+[ext_resource type="Script" path="res://Misc_Scripts/move_right_label.gd" id="7_437yc"]
+[ext_resource type="Script" path="res://Misc_Scripts/move_jump_label.gd" id="8_h6cw5"]
 
 [sub_resource type="Animation" id="Animation_lavqv"]
 resource_name = "scroll"
@@ -78,6 +82,7 @@ theme_override_constants/outline_size = 45
 theme_override_fonts/font = ExtResource("3_lddbu")
 theme_override_font_sizes/font_size = 60
 text = "Edit Controls"
+script = ExtResource("4_e6bua")
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -101,6 +106,7 @@ theme_override_fonts/font = ExtResource("3_lddbu")
 theme_override_font_sizes/font_size = 36
 text = "A"
 horizontal_alignment = 1
+script = ExtResource("6_rwjx7")
 
 [node name="MoveRight" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -119,6 +125,7 @@ theme_override_fonts/font = ExtResource("3_lddbu")
 theme_override_font_sizes/font_size = 36
 text = "D"
 horizontal_alignment = 1
+script = ExtResource("7_437yc")
 
 [node name="detach" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
 visible = false
@@ -157,6 +164,7 @@ theme_override_fonts/font = ExtResource("3_lddbu")
 theme_override_font_sizes/font_size = 36
 text = "Space"
 horizontal_alignment = 1
+script = ExtResource("8_h6cw5")
 
 [node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2

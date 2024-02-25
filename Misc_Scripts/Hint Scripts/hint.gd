@@ -11,3 +11,6 @@ func _event_to_string(event,default = ""):
 		return "Axis " + str(event.axis)
 	else:
 		return default
+
+func _event_string_to_string(eventName,default):
+	return _event_to_string(InputMap.action_get_events(eventName)[0],default)
