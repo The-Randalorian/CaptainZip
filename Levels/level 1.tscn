@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=14 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="2_c8svj"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="7_m5eyv"]
 [ext_resource type="Texture2D" uid="uid://cbwg7cebxmcht" path="res://background/sky.png" id="8_fy735"]
 [ext_resource type="FontFile" uid="uid://kqcy8katsi5n" path="res://fonts/Handwriting-Regular.otf" id="8_oe2sg"]
+[ext_resource type="PackedScene" uid="uid://dkw6sljjvaqat" path="res://crab/crab.tscn" id="9_8eygg"]
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="10_s4lyk"]
 [ext_resource type="PackedScene" uid="uid://ccd7lf64ciqsm" path="res://follow_camera.tscn" id="11_bdmnf"]
 [ext_resource type="AudioStream" uid="uid://kvlr0q5588h6" path="res://Audio/Music/pirate_theme.ogg" id="13_2okmc"]
@@ -105,7 +106,7 @@ position = Vector2(144, 162)
 flip_h = true
 
 [node name="Parrot_13" parent="Parrots" instance=ExtResource("3_4gcht")]
-position = Vector2(144, 162)
+position = Vector2(1288, 304)
 flip_h = true
 
 [node name="Parrot_01" parent="Parrots" instance=ExtResource("3_4gcht")]
@@ -146,6 +147,98 @@ position = Vector2(2430, 54)
 position = Vector2(2916, 567)
 flip_h = true
 
+[node name="Parrot_72" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(3618, 738)
+flip_h = true
+
+[node name="Parrot_73" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(4581, 936)
+flip_h = true
+
+[node name="Parrot_74" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(4545, 1134)
+flip_h = true
+
+[node name="Parrot_75" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(5076, 900)
+flip_h = true
+
+[node name="Parrot_76" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(4842, 846)
+flip_h = true
+
+[node name="Parrot_77" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(4959, 1062)
+flip_h = true
+
+[node name="Parrot_78" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(5643, 1386)
+flip_h = true
+
+[node name="Parrot_79" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(5301, 1566)
+flip_h = true
+
+[node name="Parrot_81" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(6336, 1152)
+flip_h = true
+
+[node name="Parrot_82" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(6930, 1260)
+flip_h = true
+
+[node name="Parrot_83" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(6318, 1530)
+flip_h = true
+
+[node name="Parrot_84" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(6183, 1458)
+flip_h = true
+
+[node name="Parrot_85" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(7119, 1548)
+flip_h = true
+
+[node name="Parrot_86" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(7281, 1494)
+flip_h = true
+
+[node name="Parrot_87" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(7452, 1440)
+flip_h = true
+
+[node name="Parrot_88" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(7497, 1188)
+flip_h = true
+
+[node name="Parrot_90" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(8001, 1278)
+flip_h = true
+
+[node name="Parrot_92" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(8973, 1692)
+flip_h = true
+
+[node name="Parrot_93" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(9063, 1602)
+flip_h = true
+
+[node name="Parrot_94" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(9423, 1692)
+flip_h = true
+
+[node name="Parrot_91" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(8442, 1746)
+flip_h = true
+
+[node name="Parrot_89" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(8019, 1746)
+flip_h = true
+
+[node name="Parrot_80" parent="Parrots" instance=ExtResource("3_4gcht")]
+position = Vector2(6291, 1152)
+flip_h = true
+
 [node name="Parrot_12" parent="Parrots" instance=ExtResource("3_4gcht")]
 position = Vector2(2466, 117)
 flip_h = true
@@ -175,6 +268,106 @@ flip_h = true
 position = Vector2(2871, 549)
 flip_h = true
 
+[node name="Parrot_47" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(3267, 900)
+flip_h = true
+
+[node name="Parrot_48" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(3681, 756)
+flip_h = true
+
+[node name="Parrot_49" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(4059, 810)
+flip_h = true
+
+[node name="Parrot_50" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(4977, 900)
+flip_h = true
+
+[node name="Parrot_51" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(5022, 1152)
+flip_h = true
+
+[node name="Parrot_52" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(4869, 1062)
+flip_h = true
+
+[node name="Parrot_53" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(5022, 1377)
+flip_h = true
+
+[node name="Parrot_54" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(4950, 1458)
+flip_h = true
+
+[node name="Parrot_55" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(5535, 1656)
+flip_h = true
+
+[node name="Parrot_56" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(5931, 1368)
+flip_h = true
+
+[node name="Parrot_59" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(6471, 1476)
+flip_h = true
+
+[node name="Parrot_60" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(6471, 1170)
+flip_h = true
+
+[node name="Parrot_61" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(6723, 1242)
+flip_h = true
+
+[node name="Parrot_62" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(7047, 1278)
+flip_h = true
+
+[node name="Parrot_63" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(7218, 1188)
+flip_h = true
+
+[node name="Parrot_64" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(7263, 1728)
+flip_h = true
+
+[node name="Parrot_65" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(7245, 1494)
+flip_h = true
+
+[node name="Parrot_66" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(7902, 1260)
+flip_h = true
+
+[node name="Parrot_67" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(8217, 1494)
+flip_h = true
+
+[node name="Parrot_68" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(8640, 1350)
+flip_h = true
+
+[node name="Parrot_69" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(9036, 1692)
+flip_h = true
+
+[node name="Parrot_70" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(8568, 1746)
+flip_h = true
+
+[node name="Parrot_71" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(8136, 1746)
+flip_h = true
+
+[node name="Parrot_57" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(5805, 1440)
+flip_h = true
+
+[node name="Parrot_58" parent="Parrots" instance=ExtResource("4_78gej")]
+position = Vector2(6264, 1728)
+flip_h = true
+
 [node name="Parrot_21" parent="Parrots" instance=ExtResource("4_78gej")]
 position = Vector2(3573, 990)
 flip_h = true
@@ -184,6 +377,51 @@ position = Vector2(3987, 792)
 
 [node name="Parrot_23" parent="Parrots" instance=ExtResource("5_4qfw0")]
 position = Vector2(3150, 612)
+
+[node name="Parrot_32" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(3704, 1008)
+
+[node name="Parrot_33" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(4410, 1116)
+
+[node name="Parrot_35" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(5094, 1152)
+
+[node name="Parrot_36" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(5481, 1440)
+
+[node name="Parrot_37" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(6147, 1188)
+
+[node name="Parrot_38" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(6525, 1170)
+
+[node name="Parrot_39" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(6579, 1548)
+
+[node name="Parrot_40" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(7020, 1260)
+
+[node name="Parrot_41" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(7371, 1440)
+
+[node name="Parrot_42" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(7686, 1746)
+
+[node name="Parrot_43" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(8271, 1494)
+
+[node name="Parrot_44" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(7938, 1260)
+
+[node name="Parrot_45" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(8676, 1350)
+
+[node name="Parrot_46" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(9117, 1602)
+
+[node name="Parrot_34" parent="Parrots" instance=ExtResource("5_4qfw0")]
+position = Vector2(4203, 828)
 
 [node name="Parrot_24" parent="Parrots" instance=ExtResource("5_4qfw0")]
 position = Vector2(2331, 108)
@@ -270,6 +508,53 @@ position = Vector2(4272, 1056)
 
 [node name="Enemy11" parent="Cowboys" instance=ExtResource("10_s4lyk")]
 position = Vector2(3984, 1020)
+
+[node name="Crabs" type="Node2D" parent="."]
+
+[node name="crab" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(2880, 810)
+
+[node name="crab2" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(3492, 990)
+
+[node name="crab3" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(3897, 1044)
+
+[node name="crab4" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(4887, 1188)
+
+[node name="crab5" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(5994, 1728)
+
+[node name="crab6" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(6129, 1728)
+
+[node name="crab7" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(6435, 1746)
+
+[node name="crab8" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(6624, 1746)
+
+[node name="crab9" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(6525, 1746)
+
+[node name="crab10" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(8019, 1746)
+
+[node name="crab11" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(8577, 1746)
+
+[node name="crab12" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(8298, 1746)
+
+[node name="crab13" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(8154, 1746)
+
+[node name="crab14" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(8433, 1746)
+
+[node name="crab15" parent="Crabs" instance=ExtResource("9_8eygg")]
+position = Vector2(8955, 1800)
 
 [node name="hint00" type="Label" parent="."]
 offset_left = -513.0
