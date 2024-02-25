@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const bulletVelocity = -300;
+const bulletVelocity = -150;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,4 +22,14 @@ func _on_area_2d_body_entered(body):
 	
 	body.playerHit();
 	#deletes node from scene
+	bulletDespawn();
+	
+#collision with anything else
+func _on_area_2d_2_body_entered(body):
+	bulletDespawn();
+	
+func bulletDespawn():
 	queue_free();
+
+
+

@@ -4,9 +4,10 @@
 extends Node2D
 
 const shootTime = 0.75;
-#const cooldownTime = 1.5;
+const cooldownTime = 5;
 
-var timer;
+var timer1;
+var timer2;
 
 var player;
 
@@ -14,14 +15,21 @@ var bulletScene = load("res://bullet.tscn");
 
 
 func _ready():
-	timer = Timer.new()
-	timer.connect("timeout",_on_timer_timeout) 
-	timer.set_wait_time(shootTime) #value is in seconds: 600 seconds = 10 minutes
-	timer.set_one_shot(true);
-	add_child(timer) 
+	timer1 = Timer.new()
+	timer1.connect("timeout",_on_timer_timeout) 
+	timer1.set_wait_time(shootTime) #value is in seconds: 600 seconds = 10 minutes
+	timer1.set_one_shot(true);
+	add_child(timer1)
+	
+	timer2 = Timer.new()
+	timer2.connect("timeout",_on_timer_timeout) 
+	timer2.set_wait_time(cooldownTime) #value is in seconds: 600 seconds = 10 minutes
+	timer2.set_one_shot(true);
+	add_child(timer2)  
 
 func _on_timer_timeout():
-	shoot(player);
+	if timer2.get_time_left() == 0:
+		shoot(player);
 
 
 
@@ -36,17 +44,17 @@ func _on_area_2d_2_body_entered(body):
 	#print("player is in shoot range");
 	player = body;
 	
-	timer.set_wait_time(shootTime);
-	timer.start();
+	timer1.set_wait_time(shootTime);
+	timer1.start();
 	
-	
-	shoot(body);
-	
+	#shoot(body);
+		
 func shoot(playerObj):
 	$Sprite2D.play("shoot");
 	var bulletNode = bulletScene.instantiate();
+	#automatically spawns at cowboy's location
 	add_child(bulletNode);  # add it to the current node
 	
-	#bulletNode.position.x = bulletNode
-	#bulletNode.position.y = 
+	timer2.set_wait_time(cooldownTime);
+	timer2.start();
 	#turns to face player
