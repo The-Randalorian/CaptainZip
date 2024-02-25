@@ -24,6 +24,7 @@ func _input(event):
 				_changeInputText(event,remapText)
 		if event is InputEventJoypadMotion and (event.axis_value > 0.8 or event.axis_value < -0.8):
 				_changeInputText(event,"axis " + str(event.get_axis()))
+		accept_event()
 			
 
 func _changeInputText(event,labelText):
