@@ -12,7 +12,7 @@ height = 9.1048
 
 [node name="bullet" type="CharacterBody2D"]
 rotation = -1.57112
-collision_layer = 1073741824
+collision_layer = 536870912
 script = ExtResource("1_hxbpw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,7 +21,7 @@ scale = Vector2(9.5, 23.75)
 texture = SubResource("PlaceholderTexture2D_cb1mo")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 1073741824
+collision_layer = 0
 collision_mask = 2147483648
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -29,8 +29,8 @@ scale = Vector2(1.4, 1.375)
 shape = SubResource("CapsuleShape2D_swq4d")
 
 [node name="Area2D2" type="Area2D" parent="."]
-collision_layer = 1073741824
-collision_mask = 3221225471
+collision_layer = 0
+collision_mask = 3758096383
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(0, 4.76837e-07)
