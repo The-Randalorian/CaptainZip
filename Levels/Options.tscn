@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc431af2xqit7"]
+
+[ext_resource type="Script" path="res://Levels/Options.gd" id="1_qrg1t"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qrg1t")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -262.0
+offset_top = 22.0
+offset_right = 269.0
+offset_bottom = 96.0
+grow_horizontal = 2
+bbcode_enabled = true
+text = "[font=res://fonts/Halogen.otf][color=bc5800][font_size=80][center]Edit Controls[/center][/font_size][/color][/font]"
+fit_content = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -33.0
+offset_right = 51.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="MoveLeft" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = " Left"
+
+[node name="move_left_label" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "a"
+horizontal_alignment = 1
+
+[node name="MoveRight" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Right"
+
+[node name="move_right_label" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "d"
+horizontal_alignment = 1
+
+[node name="Jump" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Jump"
+
+[node name="move_jump_label" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "space"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="GridContainer/MoveLeft" to="." method="_on_move_left_pressed"]
+[connection signal="pressed" from="GridContainer/MoveRight" to="." method="_on_move_right_pressed"]
+[connection signal="pressed" from="GridContainer/Jump" to="." method="_on_jump_pressed"]
