@@ -1,12 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc431af2xqit7"]
+[gd_scene load_steps=3 format=3 uid="uid://bc431af2xqit7"]
 
 [ext_resource type="Script" path="res://Levels/Options.gd" id="1_qrg1t"]
+[ext_resource type="Script" path="res://Levels/MoveLeft.gd" id="2_pypyb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qrg1t")
@@ -43,11 +46,12 @@ columns = 2
 [node name="MoveLeft" type="Button" parent="GridContainer"]
 layout_mode = 2
 text = " Left"
+script = ExtResource("2_pypyb")
 
 [node name="move_left_label" type="Label" parent="GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "a"
+text = "A"
 horizontal_alignment = 1
 
 [node name="MoveRight" type="Button" parent="GridContainer"]
@@ -57,7 +61,17 @@ text = "Right"
 [node name="move_right_label" type="Label" parent="GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "d"
+text = "D"
+horizontal_alignment = 1
+
+[node name="detach" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Detach"
+
+[node name="move_detach_label" type="Label" parent="GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "S"
 horizontal_alignment = 1
 
 [node name="Jump" type="Button" parent="GridContainer"]
@@ -67,9 +81,10 @@ text = "Jump"
 [node name="move_jump_label" type="Label" parent="GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "space"
+text = "Space"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="GridContainer/MoveLeft" to="." method="_on_move_left_pressed"]
 [connection signal="pressed" from="GridContainer/MoveRight" to="." method="_on_move_right_pressed"]
+[connection signal="pressed" from="GridContainer/detach" to="." method="_on_detach_pressed"]
 [connection signal="pressed" from="GridContainer/Jump" to="." method="_on_jump_pressed"]
