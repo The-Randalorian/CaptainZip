@@ -15,6 +15,7 @@ var camera_offset = Vector2(0, -27)
 func _ready():
 	player_object = get_node(player_object_path)
 	global_position = player_object.global_position + camera_offset
+	$transition_handler.visible = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

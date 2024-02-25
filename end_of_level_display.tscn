@@ -186,7 +186,7 @@ theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 13
 theme_override_fonts/font = ExtResource("2_5o8ig")
 theme_override_font_sizes/font_size = 30
-text = "Time:"
+text = "Time: "
 
 [node name="time_value" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -197,7 +197,7 @@ theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 13
 theme_override_fonts/font = ExtResource("2_5o8ig")
 theme_override_font_sizes/font_size = 30
-text = "600 seconds"
+text = "00:00.00"
 horizontal_alignment = 2
 
 [node name="rank_text" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
@@ -210,7 +210,7 @@ theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 13
 theme_override_fonts/font = ExtResource("2_5o8ig")
 theme_override_font_sizes/font_size = 30
-text = "Rank:"
+text = "Rank: "
 
 [node name="rank_value" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -221,7 +221,7 @@ theme_override_constants/outline_size = 12
 theme_override_constants/shadow_outline_size = 13
 theme_override_fonts/font = ExtResource("2_5o8ig")
 theme_override_font_sizes/font_size = 30
-text = "600 seconds"
+text = "X"
 horizontal_alignment = 2
 
 [node name="continue_label" type="Label" parent="CenterContainer/VBoxContainer"]

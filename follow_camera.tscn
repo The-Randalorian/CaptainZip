@@ -9,6 +9,7 @@ script = ExtResource("1_sb6cd")
 player_object_path = NodePath("../player")
 
 [node name="transition_handler" parent="." instance=ExtResource("2_ss42k")]
+visible = false
 z_index = 100
 anchors_preset = 0
 anchor_right = 0.0
