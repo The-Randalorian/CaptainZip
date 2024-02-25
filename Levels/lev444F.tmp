@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=18 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="Texture2D" uid="uid://btvf5g5otn5li" path="res://background/horizon.png" id="1_yx612"]
@@ -16,10 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="10_s4lyk"]
 [ext_resource type="PackedScene" uid="uid://ccd7lf64ciqsm" path="res://follow_camera.tscn" id="11_bdmnf"]
 [ext_resource type="AudioStream" uid="uid://d02se2yop5o3w" path="res://Audio/Music/pirate_day.ogg" id="13_bafop"]
-[ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint00.gd" id="14_qlj1m"]
-[ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint01.gd" id="15_dcj3q"]
-[ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint02.gd" id="16_cf1o1"]
-[ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint05.gd" id="17_n4rnr"]
+[ext_resource type="Script" path="res://Misc_Scripts/hint00.gd" id="14_dde4m"]
 
 [node name="level" type="Node2D"]
 
@@ -619,7 +616,7 @@ theme_override_fonts/font = ExtResource("8_oe2sg")
 theme_override_font_sizes/font_size = 24
 text = "A and D
      to move"
-script = ExtResource("14_qlj1m")
+script = ExtResource("14_dde4m")
 
 [node name="hint01" type="Label" parent="."]
 offset_left = -216.0
@@ -633,7 +630,6 @@ theme_override_fonts/font = ExtResource("8_oe2sg")
 theme_override_font_sizes/font_size = 24
 text = "Tap Space
      to jump"
-script = ExtResource("15_dcj3q")
 
 [node name="hint02" type="Label" parent="."]
 offset_left = 279.0
@@ -647,7 +643,6 @@ theme_override_fonts/font = ExtResource("8_oe2sg")
 theme_override_font_sizes/font_size = 24
 text = "Hold Space
   to jump further..."
-script = ExtResource("16_cf1o1")
 
 [node name="hint03" type="Label" parent="."]
 offset_left = 684.0
@@ -687,7 +682,6 @@ theme_override_fonts/font = ExtResource("8_oe2sg")
 theme_override_font_sizes/font_size = 24
 text = "Tap Space
      to jump off"
-script = ExtResource("17_n4rnr")
 
 [node name="hint06" type="Label" parent="."]
 offset_left = 1746.0
