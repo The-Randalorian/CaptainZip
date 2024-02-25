@@ -57,7 +57,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_bdlb1"]
-colors = PackedColorArray(0.737255, 0.470588, 0.176471, 1, 1, 0.74902, 0.498039, 1)
+colors = PackedColorArray(0.180392, 0.690196, 0.509804, 1, 0.211765, 0.890196, 0.466667, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_c0ly8"]
 gradient = SubResource("Gradient_bdlb1")
