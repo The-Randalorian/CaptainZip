@@ -27,7 +27,9 @@ folder_colors={
 "res://Audio/": "green",
 "res://Tilemap/": "orange",
 "res://background/": "blue",
-"res://build/": "gray"
+"res://build/": "gray",
+"res://cowboy/": "red",
+"res://crab/": "red"
 }
 
 [input]

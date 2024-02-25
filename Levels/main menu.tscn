@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://28042ernafjr"]
+[gd_scene load_steps=8 format=3 uid="uid://28042ernafjr"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_6vjn4"]
 [ext_resource type="Texture2D" uid="uid://c6peh145dhoil" path="res://title.png" id="2_x0vsi"]
 [ext_resource type="FontFile" uid="uid://b7cb5kg44kvij" path="res://fonts/Halogen.otf" id="3_ypd61"]
 [ext_resource type="Texture2D" uid="uid://d3ktea5t51slb" path="res://background/main-menu.png" id="4_iwith"]
+[ext_resource type="AudioStream" uid="uid://hphxla1l3ym4" path="res://Audio/Music/menu-music.ogg" id="5_fnk7x"]
 
 [sub_resource type="Animation" id="Animation_lavqv"]
 resource_name = "scroll"
@@ -87,7 +88,6 @@ theme_override_font_sizes/font_size = 25
 text = "Start"
 
 [node name="OptionButton" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ypd61")
 theme_override_font_sizes/font_size = 25
@@ -105,5 +105,11 @@ libraries = {
 "": SubResource("AnimationLibrary_wlqvp")
 }
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fnk7x")
+autoplay = true
+bus = &"Music"
+
 [connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_down" from="CenterContainer/VBoxContainer2/VBoxContainer/OptionButton" to="." method="_on_option_button_button_down"]
 [connection signal="button_down" from="CenterContainer/VBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]

@@ -3,8 +3,8 @@
 
 extends Node2D
 
-const shootTime = 0.75;
-const cooldownTime = 5;
+const shootTime = 0.5;
+const cooldownTime = 3;
 
 var timer1;
 var timer2;
