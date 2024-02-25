@@ -31,7 +31,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	var error = player_object.global_position + camera_offset - global_position
 	
 	velocity += error * delta * 60 * CAMERA_ACCELERATION
@@ -39,11 +39,13 @@ func _process(delta):
 	velocity *= CAMERA_DAMPING
 	
 	global_position += velocity * delta
+	#$Label.position = global_position
 
 var level_running = true
 
 func end_level():
 	if level_running:
 		$transition_handler.end_level(next_level)
+		$Label.visible = false
 		$gong.play()
 		level_running = false

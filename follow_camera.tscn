@@ -1,14 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccd7lf64ciqsm"]
+[gd_scene load_steps=7 format=3 uid="uid://ccd7lf64ciqsm"]
 
 [ext_resource type="Script" path="res://follow_camera.gd" id="1_sb6cd"]
+[ext_resource type="PackedScene" uid="uid://urdwvxagni6j" path="res://label.tscn" id="2_nqduq"]
 [ext_resource type="PackedScene" uid="uid://cge172ji1w6ub" path="res://end_of_level_display.tscn" id="2_ss42k"]
 [ext_resource type="AudioStream" uid="uid://braltl8my46at" path="res://Audio/SFX/piratewhistle.ogg" id="3_jq7lj"]
+[ext_resource type="FontFile" uid="uid://b7cb5kg44kvij" path="res://fonts/Halogen.otf" id="3_x73jy"]
 [ext_resource type="AudioStream" uid="uid://cypxagc3kcok0" path="res://Audio/SFX/buoybell.ogg" id="4_4ouwu"]
 
 [node name="follow_camera" type="Camera2D"]
 zoom = Vector2(2, 2)
 script = ExtResource("1_sb6cd")
 player_object_path = NodePath("../player")
+
+[node name="Label" parent="." instance=ExtResource("2_nqduq")]
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_x73jy")
 
 [node name="transition_handler" parent="." instance=ExtResource("2_ss42k")]
 visible = false
