@@ -12,6 +12,8 @@ const PLATFORMING_FLOAT = 0.5		# how much we want to let the player float or gli
 const ZIP_ANGLE_FORGIVENESS = 0.5	# how much of the players off-angle velocity we want to put into the zipline
 
 const invincibilityTime = 0.5;		#player invincibility time (seconds)
+const killingVelocityX = 250;		#speed you must go to kill enemies
+const killingVelocityY = 50;		#speed you must go to kill enemies
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -71,6 +73,8 @@ func attach_to_zip(zip):
 
 
 func _physics_process(delta):
+	#print(str(velocity.x) + ", " + str(velocity.y));
+	
 	if playerHealth <= 0:
 		playerDeath();
 	
@@ -182,6 +186,9 @@ func ground_physics_process(delta):
 
 func _on_allow_zip_timer_timeout():
 	allow_zip = true
+	
+func atKillingVelocity():
+	return (abs(velocity.x) > killingVelocityX || abs(velocity.y) > killingVelocityY);
 	
 func playerHit():
 	#print(invincible);

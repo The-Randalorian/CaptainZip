@@ -37,7 +37,12 @@ func _on_timer_timeout():
 func _on_area_2d_body_entered(body):
 	#only happens on collision with mask 32 (the player)
 	#print("there's a collision here");
-	body.playerHit();
+	
+	#hacky way of doing it, but it's a damn game jam
+	if body.atKillingVelocity():
+		cowboyDeath();
+	else:
+		body.playerHit();
 
 #player is in shoot range
 func _on_area_2d_2_body_entered(body):
@@ -62,3 +67,6 @@ func shoot(playerObj):
 	timer2.set_wait_time(cooldownTime);
 	timer2.start();
 	#turns to face player
+	
+func cowboyDeath():
+	queue_free();
