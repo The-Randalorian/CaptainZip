@@ -33,7 +33,7 @@ _data = {
 script = ExtResource("1_lnper")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(70.1608, -15)
+position = Vector2(-83.7527, -15)
 texture = ExtResource("1_lfi3p")
 script = ExtResource("2_7gss3")
 

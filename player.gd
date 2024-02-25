@@ -203,7 +203,7 @@ func playerHit():
 		invincible = true;
 	
 func playerDeath():
-	get_tree().reload_current_scene();
+	get_tree().call_deferred("reload_current_scene")
 
 
 func _on_jump_anim_delay_timer_timeout():

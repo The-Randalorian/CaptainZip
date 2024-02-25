@@ -12,11 +12,24 @@ func _on_area_2d_body_entered(body):
 		body.playerHit();
 	
 	
-	body.playerHit();
+	#body.playerHit();
 
 func _ready():
 	$editor_area.visible = false
 	$AnimationPlayer.play("default")
+
+var dead = false
+var velocity = Vector2(0.0, 0.0)
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _physics_process(delta):
+	if dead:
+		position += velocity * delta
+		velocity.y += gravity * delta
 	
 func crabDeath():
-	queue_free();
+	$Sprite2D/Area2D.set_deferred("monitoring", false)
+	$Sprite2D/Area2D.set_deferred("monitorable", false)
+	$AnimationPlayer.stop()
+	dead = true
+	velocity = Vector2(randf_range(-160, 160), -240)

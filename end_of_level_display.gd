@@ -24,7 +24,7 @@ func end_level(next_level):
 func level_ended():
 	get_tree().call_deferred("change_scene_to_file", queued_level)
 
-func _process(delta):
+func _process(_delta):
 	if display_showing and Input.is_action_just_pressed("ui_accept"):
 		$AnimationPlayer.play("end_level")
 		display_showing = false

@@ -25,7 +25,16 @@ func _ready():
 	timer2.connect("timeout",_on_timer_timeout) 
 	timer2.set_wait_time(cooldownTime) #value is in seconds: 600 seconds = 10 minutes
 	timer2.set_one_shot(true);
-	add_child(timer2)  
+	add_child(timer2)
+
+var dead = false
+var velocity = Vector2(0.0, 0.0)
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _physics_process(delta):
+	if dead:
+		position += velocity * delta
+		velocity.y += gravity * delta
 
 func _on_timer_timeout():
 	if timer2.get_time_left() == 0:
@@ -54,7 +63,7 @@ func _on_area_2d_2_body_entered(body):
 	
 	#shoot(body);
 		
-func shoot(playerObj):
+func shoot(_playerObj):
 	$shoot.play()
 	$Sprite2D.play("shoot");
 	var bulletNode = bulletScene.instantiate();
@@ -70,4 +79,10 @@ func shoot(playerObj):
 	#turns to face player
 	
 func cowboyDeath():
-	queue_free();
+	$Area2D.set_deferred("monitoring", false)
+	$Area2D.set_deferred("monitorable", false)
+	$Area2D2.set_deferred("monitoring", false)
+	$Area2D2.set_deferred("monitorable", false)
+	timer1.stop()
+	dead = true
+	velocity = Vector2(randf_range(-160, 160), -240)

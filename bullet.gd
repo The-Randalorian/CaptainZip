@@ -7,12 +7,8 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.x = bulletVelocity;
 	move_and_slide();
 
@@ -25,7 +21,7 @@ func _on_area_2d_body_entered(body):
 	bulletDespawn();
 	
 #collision with anything else
-func _on_area_2d_2_body_entered(body):
+func _on_area_2d_2_body_entered(_body):
 	bulletDespawn();
 	
 func bulletDespawn():

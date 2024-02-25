@@ -543,10 +543,10 @@ position = Vector2(5859, 1440)
 position = Vector2(6840, 1476)
 
 [node name="Enemy08" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(6426, 1152)
+position = Vector2(5085, 900)
 
 [node name="Enemy09" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(6390, 1152)
+position = Vector2(6426, 1152)
 
 [node name="Enemy10" parent="Cowboys" instance=ExtResource("10_s4lyk")]
 position = Vector2(4293, 1080)
