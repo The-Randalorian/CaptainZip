@@ -1,9 +1,41 @@
-[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://6sdvsnatenw2"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://6sdvsnatenw2"]
 
+[ext_resource type="Texture2D" uid="uid://cjhtwhmoj8xv" path="res://Tilemap/small_tree.png" id="1_baxjt"]
 [ext_resource type="Texture2D" uid="uid://ctnxo4jstg2j8" path="res://Tilemap/SipMap.png" id="1_t61yq"]
+[ext_resource type="Texture2D" uid="uid://cgexchdh1km8e" path="res://Tilemap/sandcastle.png" id="2_kign6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ppqik"]
 friction = 0.65
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_335sm"]
+texture = ExtResource("1_baxjt")
+texture_region_size = Vector2i(18, 18)
+0:0/size_in_atlas = Vector2i(6, 7)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-9, 54)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/texture_origin = Vector2i(9, 54)
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p73a5"]
+texture = ExtResource("2_kign6")
+texture_region_size = Vector2i(18, 18)
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/next_alternative_id = 2
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 9)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/1 = 1
+0:0/1/flip_h = true
+0:0/1/texture_origin = Vector2i(0, 9)
+0:0/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/1/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11fds"]
 texture = ExtResource("1_t61yq")
@@ -912,3 +944,5 @@ terrain_set_0/terrain_8/color = Color(0.25, 0.40625, 0.5, 1)
 custom_data_layer_0/name = "Ground Effect"
 custom_data_layer_0/type = 21
 sources/2 = SubResource("TileSetAtlasSource_11fds")
+sources/0 = SubResource("TileSetAtlasSource_335sm")
+sources/1 = SubResource("TileSetAtlasSource_p73a5")

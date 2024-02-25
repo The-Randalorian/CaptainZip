@@ -26,6 +26,7 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://Audio/": "green",
+"res://Tilemap/": "orange",
 "res://build/": "gray"
 }
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://0fo52veny3im"]
 
-[ext_resource type="Texture2D" uid="uid://b0cwskxbp8k27" path="res://Tilemap/tilemap_packed.png" id="1_is80x"]
+[ext_resource type="Texture2D" uid="uid://c4k2agjpuefs7" path="res://Tilemap/rope.png" id="1_7hh1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nbpr8"]
 size = Vector2(6, 6)
@@ -15,7 +15,6 @@ shape = SubResource("RectangleShape2D_nbpr8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(3, 0)
-texture = ExtResource("1_is80x")
-region_enabled = true
+texture = ExtResource("1_7hh1p")
 region_rect = Rect2(198, 78, 6, 6)
 metadata/zip_length = 6
