@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=16 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
+[ext_resource type="Texture2D" uid="uid://btvf5g5otn5li" path="res://background/horizon.png" id="1_yx612"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="2_c8svj"]
 [ext_resource type="Texture2D" uid="uid://coy6m81a82e5p" path="res://background/clouds.png" id="2_uv5bh"]
 [ext_resource type="Texture2D" uid="uid://ddkmk7y2368db" path="res://background/ocean .png" id="2_v2d4r"]
@@ -12,29 +13,29 @@
 [ext_resource type="FontFile" uid="uid://kqcy8katsi5n" path="res://fonts/Handwriting-Regular.otf" id="8_oe2sg"]
 [ext_resource type="PackedScene" uid="uid://dkw6sljjvaqat" path="res://crab/crab.tscn" id="9_8eygg"]
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="10_s4lyk"]
-[ext_resource type="PackedScene" path="res://follow_camera.tscn" id="11_bdmnf"]
+[ext_resource type="PackedScene" uid="uid://ccd7lf64ciqsm" path="res://follow_camera.tscn" id="11_bdmnf"]
 [ext_resource type="AudioStream" uid="uid://d02se2yop5o3w" path="res://Audio/Music/pirate_day.ogg" id="13_bafop"]
 
 [node name="level" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.25, 0.063)
+[node name="ParallaxLayer1" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.125, 0.125)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer1"]
 texture_repeat = 2
 position = Vector2(-702, -54)
 scale = Vector2(2, 2)
-texture = ExtResource("2_v2d4r")
+texture = ExtResource("1_yx612")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2000, 270)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.25)
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.25)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
 texture_repeat = 2
 position = Vector2(-738, -252)
 scale = Vector2(2, 2)
@@ -42,6 +43,19 @@ texture = ExtResource("2_uv5bh")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 4000, 500)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.35, 0.35)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_repeat = 2
+position = Vector2(-765, -558)
+scale = Vector2(2, 2)
+texture = ExtResource("2_v2d4r")
+centered = false
+offset = Vector2(0, 444)
+region_enabled = true
+region_rect = Rect2(14, 466, 4000, 550)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_y2b1i")
@@ -687,8 +701,9 @@ theme_override_font_sizes/font_size = 24
 text = "HAVE FUN
   GET HOOKED!"
 
-[node name="player" parent="." instance=ExtResource("7_m5eyv")]
+[node name="player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("7_m5eyv")]
 position = Vector2(-513, 162)
+tilemap = NodePath("../TileMap")
 
 [node name="follow_camera" parent="." instance=ExtResource("11_bdmnf")]
 position = Vector2(-513, 135)

@@ -17,6 +17,8 @@ const invincibilityTime = 0.5;		#player invincibility time (seconds)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hook_offset = $HookPosition.position
 
+@export var tilemap: TileMap
+
 var playerHealth = 3;
 var invincible = false;
 
@@ -79,6 +81,11 @@ func _physics_process(delta):
 		
 	if timer.get_time_left() == 0:
 		_on_timer_timeout();
+	
+	var tm_pos = Vector2i((global_position - tilemap.global_position) / 18) - Vector2i(1, 0)
+	var current_tile = tilemap.get_cell_tile_data(0, tm_pos)
+	if current_tile and current_tile.get_custom_data("Instakill"):
+		playerDeath()
 
 func zipline_physics_process(delta):
 	#position = connected_zipline.position
