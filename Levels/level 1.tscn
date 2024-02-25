@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=17 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="Texture2D" uid="uid://btvf5g5otn5li" path="res://background/horizon.png" id="1_yx612"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://coy6m81a82e5p" path="res://background/clouds.png" id="2_uv5bh"]
 [ext_resource type="Texture2D" uid="uid://ddkmk7y2368db" path="res://background/ocean .png" id="2_v2d4r"]
 [ext_resource type="PackedScene" uid="uid://c7sqd5bbfivkq" path="res://parrots/red-green/parrot_00.tscn" id="3_4gcht"]
+[ext_resource type="Texture2D" uid="uid://b6twlwva0crfp" path="res://background/hills.png" id="4_2t640"]
 [ext_resource type="PackedScene" uid="uid://3ffk4xs0kyup" path="res://parrots/blue-yellow/parrot_00.tscn" id="4_78gej"]
 [ext_resource type="PackedScene" uid="uid://bioced062wb3l" path="res://parrots/gray-blue/parrot_00.tscn" id="5_4qfw0"]
 [ext_resource type="PackedScene" uid="uid://b6a4g8jjofwlb" path="res://spring.tscn" id="6_j3313"]
@@ -25,12 +26,13 @@ motion_scale = Vector2(0.125, 0.125)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer1"]
 texture_repeat = 2
-position = Vector2(-702, -54)
+position = Vector2(-702, -72)
 scale = Vector2(2, 2)
 texture = ExtResource("1_yx612")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 2000, 270)
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.25, 0.25)
@@ -43,6 +45,7 @@ texture = ExtResource("2_uv5bh")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 4000, 500)
+metadata/_edit_lock_ = true
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.35, 0.35)
@@ -56,6 +59,21 @@ centered = false
 offset = Vector2(0, 444)
 region_enabled = true
 region_rect = Rect2(14, 466, 4000, 550)
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture_repeat = 2
+position = Vector2(-774, -360)
+scale = Vector2(2, 2)
+texture = ExtResource("4_2t640")
+centered = false
+offset = Vector2(0, 444)
+region_enabled = true
+region_rect = Rect2(-4, 154, 4000, 394)
+metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_y2b1i")
@@ -501,40 +519,40 @@ strength = 750
 metadata/_edit_lock_ = true
 
 [node name="Enemy00" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(7146, 1665)
+position = Vector2(7164, 1692)
 
 [node name="Enemy01" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(7362, 1647)
+position = Vector2(7416, 1674)
 
 [node name="Enemy02" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(6702, 1722)
+position = Vector2(6741, 1746)
 
 [node name="Enemy03" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(6378, 1722)
+position = Vector2(6444, 1746)
 
 [node name="Enemy04" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(6135, 1704)
+position = Vector2(6138, 1728)
 
 [node name="Enemy05" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(5856, 1704)
+position = Vector2(5877, 1728)
 
 [node name="Enemy06" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(5838, 1416)
+position = Vector2(5859, 1440)
 
 [node name="Enemy07" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(6828, 1452)
+position = Vector2(6840, 1476)
 
 [node name="Enemy08" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(6408, 1125)
+position = Vector2(6426, 1152)
 
 [node name="Enemy09" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(6354, 1125)
+position = Vector2(6390, 1152)
 
 [node name="Enemy10" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(4272, 1056)
+position = Vector2(4293, 1080)
 
 [node name="Enemy11" parent="Cowboys" instance=ExtResource("10_s4lyk")]
-position = Vector2(3984, 1020)
+position = Vector2(4005, 1044)
 
 [node name="Crabs" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -707,6 +725,7 @@ tilemap = NodePath("../TileMap")
 
 [node name="follow_camera" parent="." instance=ExtResource("11_bdmnf")]
 position = Vector2(-513, 135)
+next_level = "res://Levels/level 3.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_bafop")
