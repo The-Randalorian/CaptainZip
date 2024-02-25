@@ -4,10 +4,14 @@
 extends Node2D
 
 const shootTime = 0.75;
+#const cooldownTime = 1.5;
 
 var timer;
 
 var player;
+
+var bulletScene = load("res://bullet.tscn");
+
 
 func _ready():
 	timer = Timer.new()
@@ -40,4 +44,9 @@ func _on_area_2d_2_body_entered(body):
 	
 func shoot(playerObj):
 	$Sprite2D.play("shoot");
+	var bulletNode = bulletScene.instantiate();
+	add_child(bulletNode);  # add it to the current node
+	
+	#bulletNode.position.x = bulletNode
+	#bulletNode.position.y = 
 	#turns to face player

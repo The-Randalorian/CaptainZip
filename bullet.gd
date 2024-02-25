@@ -15,3 +15,11 @@ func _process(delta):
 func _physics_process(delta):
 	velocity.x = bulletVelocity;
 	move_and_slide();
+
+#collision with player
+func _on_area_2d_body_entered(body):
+	print("player has collided with bullet");
+	
+	body.playerHit();
+	#deletes node from scene
+	queue_free();
