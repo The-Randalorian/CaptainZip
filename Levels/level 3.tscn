@@ -88,9 +88,9 @@ position = Vector2(-279, 126)
 endpoint = Vector2(522.345, -73.555)
 
 [node name="Zipline2" parent="Ziplines" instance=ExtResource("4_gwju8")]
-position = Vector2(-1089, 1629)
-endpoint = Vector2(1000, -600)
-drop = 42.895
+position = Vector2(8316, 657)
+endpoint = Vector2(400, -100)
+drop = 6.14
 
 [node name="Zipline3" parent="Ziplines" instance=ExtResource("4_gwju8")]
 position = Vector2(-450, 0)
