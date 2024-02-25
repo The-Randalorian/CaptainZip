@@ -84,7 +84,22 @@ layout_mode = 2
 text = "Space"
 horizontal_alignment = 1
 
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -31.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main Menu"
+
 [connection signal="pressed" from="GridContainer/MoveLeft" to="." method="_on_move_left_pressed"]
 [connection signal="pressed" from="GridContainer/MoveRight" to="." method="_on_move_right_pressed"]
 [connection signal="pressed" from="GridContainer/detach" to="." method="_on_detach_pressed"]
 [connection signal="pressed" from="GridContainer/Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

@@ -50,3 +50,7 @@ func _on_move_left_pressed():
 
 func _on_detach_pressed():
 	_on_buttonChange_press("move_detach")
+
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://Levels/main menu.tscn") # Replace with function body.
