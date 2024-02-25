@@ -3,6 +3,9 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("scroll")
+	$CenterContainer/VBoxContainer2/VBoxContainer/StartButton.grab_focus()
+	if OS.has_feature("web"):  # quitting on web crashes the game weirdly
+		$CenterContainer/VBoxContainer2/VBoxContainer/QuitButton.visible = false
 
 
 

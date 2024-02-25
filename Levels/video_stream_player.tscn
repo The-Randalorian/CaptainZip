@@ -11,7 +11,8 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("1_6ppr2")
 autoplay = true
-bus = &"SFX"
+expand = true
+bus = &"Music"
 script = ExtResource("2_4n6ky")
 
 [connection signal="finished" from="." to="." method="_on_finished" binds= ["res://Levels/level 1.tscn"]]
