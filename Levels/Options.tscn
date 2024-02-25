@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc431af2xqit7"]
 
-[ext_resource type="Script" path="res://Levels/Options.gd" id="1_qrg1t"]
-[ext_resource type="Script" path="res://Levels/MoveLeft.gd" id="2_pypyb"]
+[ext_resource type="Script" path="res://Misc_Scripts/Options.gd" id="1_qrg1t"]
+[ext_resource type="Script" path="res://Misc_Scripts/MoveLeft.gd" id="2_pypyb"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
