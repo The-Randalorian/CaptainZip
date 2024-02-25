@@ -11,12 +11,23 @@ const CAMERA_ACCELERATION = 1.80
 const CAMERA_DAMPING = 0.80
 var camera_offset = Vector2(0, -27)
 
+@export var s_rank = 30.0
+@export var a_rank = 60.0
+@export var b_rank = 90.0
+@export var c_rank = 120.0
+@export var d_rank = 150.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_object = get_node(player_object_path)
 	global_position = player_object.global_position + camera_offset
 	$transition_handler.visible = true
 	$whistle.play()
+	$transition_handler.s_rank = s_rank
+	$transition_handler.a_rank = a_rank
+	$transition_handler.b_rank = b_rank
+	$transition_handler.c_rank = c_rank
+	$transition_handler.d_rank = d_rank
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
