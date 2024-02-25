@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="3_y5hip"]
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="4_uwrlc"]
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="5_lk303"]
-[ext_resource type="AudioStream" uid="uid://kvlr0q5588h6" path="res://Audio/Music/pirate_theme.ogg" id="6_4jrul"]
 [ext_resource type="PackedScene" uid="uid://ccd7lf64ciqsm" path="res://follow_camera.tscn" id="7_d7mvt"]
+[ext_resource type="AudioStream" uid="uid://d02se2yop5o3w" path="res://Audio/Music/pirate_day.ogg" id="10_nuwhc"]
 [ext_resource type="PackedScene" uid="uid://dkw6sljjvaqat" path="res://crab/crab.tscn" id="11_t84lf"]
 [ext_resource type="PackedScene" uid="uid://b6a4g8jjofwlb" path="res://spring.tscn" id="12_76woa"]
 
@@ -188,7 +188,7 @@ position = Vector2(206, 113)
 tilemap = NodePath("../TileMap")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_4jrul")
+stream = ExtResource("10_nuwhc")
 autoplay = true
 
 [node name="Crabs" type="Node2D" parent="."]
