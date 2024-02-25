@@ -1,6 +1,7 @@
 extends Camera2D
 
 @export var player_object_path:NodePath
+@export var next_level:String
 
 var player_object
 
@@ -27,4 +28,4 @@ func _process(delta):
 	global_position += velocity * delta
 
 func end_level():
-	$transition_handler.end_level()
+	$transition_handler.end_level(next_level)

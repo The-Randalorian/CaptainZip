@@ -11,16 +11,18 @@ func _ready():
 	$AnimationPlayer.play("start_level")
 	start_timer()
 
+var queued_level:String
 
-func end_level():
+func end_level(next_level):
 	if level_running:
 		stop_timer()
 		$AnimationPlayer.play("show_stats")
 		level_running = false
 		display_showing = true
+		queued_level = next_level
 
 func level_ended():
-	get_tree().call_deferred("reload_current_scene")
+	get_tree().call_deferred("change_scene_to_file", queued_level)
 
 func _process(delta):
 	if display_showing and Input.is_action_just_pressed("ui_accept"):

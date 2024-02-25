@@ -1,13 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=15 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="2_c8svj"]
+[ext_resource type="Texture2D" uid="uid://coy6m81a82e5p" path="res://background/clouds.png" id="2_uv5bh"]
+[ext_resource type="Texture2D" uid="uid://ddkmk7y2368db" path="res://background/ocean .png" id="2_v2d4r"]
 [ext_resource type="PackedScene" uid="uid://c7sqd5bbfivkq" path="res://parrots/red-green/parrot_00.tscn" id="3_4gcht"]
 [ext_resource type="PackedScene" uid="uid://3ffk4xs0kyup" path="res://parrots/blue-yellow/parrot_00.tscn" id="4_78gej"]
 [ext_resource type="PackedScene" uid="uid://bioced062wb3l" path="res://parrots/gray-blue/parrot_00.tscn" id="5_4qfw0"]
 [ext_resource type="PackedScene" uid="uid://b6a4g8jjofwlb" path="res://spring.tscn" id="6_j3313"]
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="7_m5eyv"]
-[ext_resource type="Texture2D" uid="uid://cbwg7cebxmcht" path="res://background/sky.png" id="8_fy735"]
 [ext_resource type="FontFile" uid="uid://kqcy8katsi5n" path="res://fonts/Handwriting-Regular.otf" id="8_oe2sg"]
 [ext_resource type="PackedScene" uid="uid://dkw6sljjvaqat" path="res://crab/crab.tscn" id="9_8eygg"]
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="10_s4lyk"]
@@ -18,17 +19,29 @@
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.063)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_repeat = 2
+position = Vector2(-702, -54)
+scale = Vector2(2, 2)
+texture = ExtResource("2_v2d4r")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 270)
+
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.5, 0.25)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture_repeat = 2
-position = Vector2(-737, -568)
+position = Vector2(-738, -252)
 scale = Vector2(2, 2)
-texture = ExtResource("8_fy735")
+texture = ExtResource("2_uv5bh")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 6000, 1500)
+region_rect = Rect2(0, 0, 4000, 500)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_y2b1i")
@@ -510,6 +523,7 @@ position = Vector2(4272, 1056)
 position = Vector2(3984, 1020)
 
 [node name="Crabs" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="crab" parent="Crabs" instance=ExtResource("9_8eygg")]
 position = Vector2(2880, 810)
@@ -562,6 +576,7 @@ offset_top = 171.0
 offset_right = -366.0
 offset_bottom = 230.0
 theme_override_colors/font_color = Color(0.529412, 0.341176, 0.14902, 1)
+theme_override_colors/font_shadow_color = Color(0.737255, 0.470588, 0.176471, 1)
 theme_override_colors/font_outline_color = Color(1, 0.74902, 0.498039, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = ExtResource("8_oe2sg")
@@ -677,6 +692,7 @@ position = Vector2(-513, 162)
 
 [node name="follow_camera" parent="." instance=ExtResource("11_bdmnf")]
 position = Vector2(-513, 135)
+next_level = "res://level 2.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_bafop")
