@@ -506,7 +506,7 @@ position = Vector2(9918, 792)
 strength = 750
 
 [node name="spring04" parent="Springs" instance=ExtResource("8_i8t27")]
-position = Vector2(10332, 945)
+position = Vector2(10323, 954)
 strength = 750
 
 [node name="Cowboys" type="Node2D" parent="."]
