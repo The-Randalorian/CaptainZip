@@ -4,6 +4,12 @@ var level_running = true
 
 var display_showing = false
 
+@export var s_rank = 30.0
+@export var a_rank = 60.0
+@export var b_rank = 90.0
+@export var c_rank = 120.0
+@export var d_rank = 150.0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$view_blocker.color = Color("000000ff")
@@ -44,15 +50,15 @@ func stop_timer():
 	var seconds = total_seconds - (minutes * 60)
 	var time_string = ("%02d" % minutes) + ":" + ("%02.3f" % seconds)
 	$CenterContainer/VBoxContainer/GridContainer/time_value.text = time_string
-	if total_seconds < 30:
+	if total_seconds < s_rank:
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "S"
-	elif total_seconds < 60:
+	elif total_seconds < a_rank:
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "A"
-	elif total_seconds < 90:
+	elif total_seconds < b_rank:
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "B"
-	elif total_seconds < 120:
+	elif total_seconds < c_rank:
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "C"
-	elif total_seconds < 150:
+	elif total_seconds < d_rank:
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "D"
 	else:
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "F"
