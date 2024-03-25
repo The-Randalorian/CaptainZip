@@ -1,3 +1,6 @@
+#@Authors - Patrick and David
+#@Description - crab behavior
+
 extends Node2D
 
 #direction collision

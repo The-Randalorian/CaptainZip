@@ -1,3 +1,6 @@
+#@Authors - Eric
+#@Description - options menu
+
 extends Control
 var EditStr = null
 

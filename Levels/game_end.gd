@@ -1,3 +1,6 @@
+#@Authors - David
+#@Description - sends user back to main menu after beating game
+
 extends Control
 
 # Called when the node enters the scene tree for the first time.

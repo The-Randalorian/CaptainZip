@@ -1,3 +1,6 @@
+#@Authors - David
+#@Description - display for rank and time. Can be modified with inspector for each level
+
 extends Control
 
 var level_running = true

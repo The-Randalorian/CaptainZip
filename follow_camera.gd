@@ -1,3 +1,6 @@
+#@Authors - David
+#@Description - camera functionality, including stopping once player finishes level
+
 extends Camera2D
 
 @export var player_object_path:NodePath

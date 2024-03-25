@@ -1,3 +1,6 @@
+#@Authors - David
+#@Description - displays total time elapsed
+
 extends Label
 var start_time;
 

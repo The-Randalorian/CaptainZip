@@ -1,3 +1,6 @@
+#@Authors - David
+#@Description - fancy catenary math for simulating rope physics
+
 @tool
 
 class_name Zipline

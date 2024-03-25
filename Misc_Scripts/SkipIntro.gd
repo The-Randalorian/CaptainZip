@@ -1,3 +1,6 @@
+#@Authors - Eric
+#@Description - skips intro
+
 extends Label
 
 func _input(event):

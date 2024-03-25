@@ -1,3 +1,6 @@
+#@Authors - David
+#@Description - controls how parrots move
+
 @tool
 
 extends Area2D

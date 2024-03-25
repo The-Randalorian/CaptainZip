@@ -1,3 +1,6 @@
+#@Authors - David and Patrick
+#@Description - handles all player movement and controls
+
 extends CharacterBody2D
 
 

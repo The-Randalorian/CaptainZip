@@ -6,6 +6,7 @@ extends Node2D
 const shootTime = 0.5;
 const cooldownTime = 3;
 
+#one timer is for time to shoot upon seeing player, other timer is for shoot cooldown
 var timer1;
 var timer2;
 
@@ -64,7 +65,7 @@ func _on_area_2d_2_body_entered(body):
 	#shoot(body);
 		
 func shoot(_playerObj):
-	$shoot.play()
+	$shoot.play();
 	$Sprite2D.play("shoot");
 	var bulletNode = bulletScene.instantiate();
 	#automatically spawns at cowboy's location

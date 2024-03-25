@@ -1,3 +1,6 @@
+#@Authors - Patrick (I think)
+#@Description - bullet movement
+
 extends CharacterBody2D
 
 const bulletVelocity = -150;
@@ -26,6 +29,4 @@ func _on_area_2d_2_body_entered(_body):
 	
 func bulletDespawn():
 	queue_free();
-
-
-
+	
