@@ -9,6 +9,9 @@ func _ready():
 	$CenterContainer/VBoxContainer2/VBoxContainer/StartButton.grab_focus()
 	if OS.has_feature("web"):  # quitting on web crashes the game weirdly
 		$CenterContainer/VBoxContainer2/VBoxContainer/QuitButton.visible = false
+		
+	#Enables fullscreen. We can turn this into a button if we want
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN);
 
 
 
