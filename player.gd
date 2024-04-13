@@ -18,6 +18,8 @@ const invincibilityTime = 0.5;		#player invincibility time (seconds)
 const killingVelocityX = GROUND_SPEED + 5;		#speed you must go to kill enemies
 const killingVelocityY = 50;		#speed you must go to kill enemies
 
+var originalColor;
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hook_offset = $HookPosition.position
@@ -48,6 +50,7 @@ func _on_timer_timeout():
 
 func _init():
 	randomize()  # set up the random number generator globally
+	originalColor = self.modulate;
 
 
 var allow_zip = true
@@ -93,6 +96,18 @@ func _physics_process(delta):
 	var current_tile = tilemap.get_cell_tile_data(0, tm_pos)
 	if current_tile and current_tile.get_custom_data("Instakill"):
 		playerDeath()
+	
+	#changes color if player is at killing velocity
+	if atKillingVelocity() || !is_on_floor():
+		modulate = Color(1, 0, 0);
+		#modulate.lerp(Color(1, 0, 0), 0.1);
+		
+		#transparency effect if we want to do some kind of ghost thing in the future
+		#modulate.a = 0.5;
+	else:
+		self.modulate = originalColor;
+		#modulate = originalColor;
+		#modulate = Color(1, 1, 1);
 
 func zipline_physics_process(delta):
 	#position = connected_zipline.position
@@ -124,10 +139,12 @@ func zipline_physics_process(delta):
 		conn_zip = null
 		$Allow_Zip_Timer.start()
 	
+	#sprite manipulation
 	if velocity.x < -10:
 		$Sprite2D.flip_h = true
 	if velocity.x > 10:
 		$Sprite2D.flip_h = false
+		
 
 func ground_physics_process(delta):
 	# Add the gravity.
@@ -194,6 +211,7 @@ func _on_allow_zip_timer_timeout():
 	allow_zip = true
 	
 func atKillingVelocity():
+	#print(abs(velocity.x) > killingVelocityX || abs(velocity.y) > killingVelocityY);
 	return (abs(velocity.x) > killingVelocityX || abs(velocity.y) > killingVelocityY);
 	
 func playerHit():
