@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0vgo3w3iatan"]
+[gd_scene load_steps=17 format=3 uid="uid://b0vgo3w3iatan"]
 
 [ext_resource type="Texture2D" uid="uid://ddkmk7y2368db" path="res://background/ocean .png" id="1_bqpk8"]
 [ext_resource type="Texture2D" uid="uid://btvf5g5otn5li" path="res://background/horizon.png" id="1_oei1n"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://ccd7lf64ciqsm" path="res://follow_camera.tscn" id="13_tajbt"]
 [ext_resource type="AudioStream" uid="uid://d02se2yop5o3w" path="res://Audio/Music/pirate_day.ogg" id="14_yieun"]
 [ext_resource type="PackedScene" uid="uid://beoo8rxmj462i" path="res://Levels/Pause_Menu.tscn" id="15_2tb7u"]
-[ext_resource type="Script" path="res://Levels/Pause_Menu.gd" id="16_l4geg"]
 
 [node name="level" type="Node2D"]
 
@@ -608,9 +607,7 @@ next_level = "res://Levels/level 2.tscn"
 levelNum = 3
 
 [node name="PauseMenu" parent="follow_camera" instance=ExtResource("15_2tb7u")]
-process_mode = 3
 scale = Vector2(0.5, 0.5)
-script = ExtResource("16_l4geg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_yieun")

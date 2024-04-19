@@ -37,6 +37,7 @@ func _ready():
 	timer.set_wait_time(invincibilityTime) #value is in seconds: 600 seconds = 10 minutes
 	timer.set_one_shot(true);
 	add_child(timer) 
+	originalColor = $Sprite2D.modulate;
 
 #called when timer reaches zero
 func _on_timer_timeout():
@@ -49,7 +50,6 @@ func _on_timer_timeout():
 
 func _init():
 	randomize()  # set up the random number generator globally
-	originalColor = self.modulate;
 
 
 var allow_zip = true
@@ -98,13 +98,13 @@ func _physics_process(delta):
 	
 	#changes color if player is at killing velocity
 	if atKillingVelocity() || !is_on_floor():
-		modulate = Color(1, 0, 0);
+		$Sprite2D.modulate = Color(1.0, 0.5, 0.5);
 		#modulate.lerp(Color(1, 0, 0), 0.1);
 		
 		#transparency effect if we want to do some kind of ghost thing in the future
 		#modulate.a = 0.5;
 	else:
-		self.modulate = originalColor;
+		$Sprite2D.modulate = originalColor;
 		#modulate = originalColor;
 		#modulate = Color(1, 1, 1);
 

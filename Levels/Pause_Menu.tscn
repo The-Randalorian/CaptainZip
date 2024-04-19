@@ -1,14 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://beoo8rxmj462i"]
+[gd_scene load_steps=9 format=3 uid="uid://beoo8rxmj462i"]
 
+[ext_resource type="Script" path="res://Levels/Pause_Menu.gd" id="1_iko24"]
 [ext_resource type="FontFile" uid="uid://b7cb5kg44kvij" path="res://fonts/Halogen.otf" id="1_sgii4"]
+[ext_resource type="Script" path="res://QuitButton.gd" id="3_cv8h3"]
+[ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint.gd" id="4_vsmm5"]
+[ext_resource type="Script" path="res://Misc_Scripts/MoveLeft.gd" id="5_ajxkv"]
+[ext_resource type="Script" path="res://Misc_Scripts/move_left_label.gd" id="6_2k03n"]
+[ext_resource type="Script" path="res://Misc_Scripts/move_right_label.gd" id="7_5rubb"]
+[ext_resource type="Script" path="res://Misc_Scripts/move_jump_label.gd" id="8_mpvqk"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iko24")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -43,3 +52,131 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_sgii4")
 theme_override_font_sizes/font_size = 25
 text = "Quit"
+script = ExtResource("3_cv8h3")
+
+[node name="Options" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/CenterContainer"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="Options/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 45
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 60
+text = "Edit Controls"
+script = ExtResource("4_vsmm5")
+
+[node name="GridContainer" type="GridContainer" parent="Options/CenterContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="MoveLeft" type="Button" parent="Options/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = " Left"
+script = ExtResource("5_ajxkv")
+
+[node name="move_left_label" type="Label" parent="Options/CenterContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = "A"
+horizontal_alignment = 1
+script = ExtResource("6_2k03n")
+
+[node name="MoveRight" type="Button" parent="Options/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = "Right"
+
+[node name="move_right_label" type="Label" parent="Options/CenterContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = "D"
+horizontal_alignment = 1
+script = ExtResource("7_5rubb")
+
+[node name="detach" type="Button" parent="Options/CenterContainer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = "Detach"
+
+[node name="move_detach_label" type="Label" parent="Options/CenterContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = "S"
+horizontal_alignment = 1
+
+[node name="Jump" type="Button" parent="Options/CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = "Jump"
+
+[node name="move_jump_label" type="Label" parent="Options/CenterContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = "Space"
+horizontal_alignment = 1
+script = ExtResource("8_mpvqk")
+
+[node name="MainMenu" type="Button" parent="Options/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sgii4")
+theme_override_font_sizes/font_size = 36
+text = "Back"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton" method="_on_pressed"]
+[connection signal="pressed" from="Options/CenterContainer/VBoxContainer/GridContainer/MoveLeft" to="." method="_on_move_left_pressed"]
+[connection signal="pressed" from="Options/CenterContainer/VBoxContainer/GridContainer/MoveRight" to="." method="_on_move_right_pressed"]
+[connection signal="pressed" from="Options/CenterContainer/VBoxContainer/GridContainer/detach" to="." method="_on_detach_pressed"]
+[connection signal="pressed" from="Options/CenterContainer/VBoxContainer/GridContainer/Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="Options/CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
