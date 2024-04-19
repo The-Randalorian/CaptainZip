@@ -98,7 +98,7 @@ func _physics_process(delta):
 	
 	#changes color if player is at killing velocity
 	if atKillingVelocity() || !is_on_floor():
-		$Sprite2D.modulate = Color(0.8, 1.0, 0.8).lerp(originalColor, sin(Time.get_ticks_msec() * 0.05));
+		$Sprite2D.modulate = Color(0.8, 1.0, 0.8).lerp(originalColor, sin(Time.get_ticks_msec() * 0.05)*0.5+0.5);
 		#modulate.lerp(Color(1, 0, 0), 0.1);
 		
 		#transparency effect if we want to do some kind of ghost thing in the future
