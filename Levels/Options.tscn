@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc431af2xqit7"]
+[gd_scene load_steps=13 format=3 uid="uid://bc431af2xqit7"]
 
 [ext_resource type="Script" path="res://Misc_Scripts/Options.gd" id="1_qrg1t"]
 [ext_resource type="Texture2D" uid="uid://d3ktea5t51slb" path="res://background/main-menu.png" id="2_130bb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Misc_Scripts/move_left_label.gd" id="6_rwjx7"]
 [ext_resource type="Script" path="res://Misc_Scripts/move_right_label.gd" id="7_437yc"]
 [ext_resource type="Script" path="res://Misc_Scripts/move_jump_label.gd" id="8_h6cw5"]
+[ext_resource type="Script" path="res://Fullscreen Button.gd" id="9_h3r8g"]
 
 [sub_resource type="Animation" id="Animation_lavqv"]
 resource_name = "scroll"
@@ -166,6 +167,23 @@ text = "Space"
 horizontal_alignment = 1
 script = ExtResource("8_h6cw5")
 
+[node name="Fullscreen Button" type="CheckButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_lddbu")
+theme_override_font_sizes/font_size = 36
+button_pressed = true
+text = "Fullscreen"
+expand_icon = true
+script = ExtResource("9_h3r8g")
+
 [node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_lddbu")
@@ -186,4 +204,5 @@ bus = &"Music"
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/MoveRight" to="." method="_on_move_right_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/detach" to="." method="_on_detach_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Jump" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Fullscreen Button" to="CenterContainer/VBoxContainer/Fullscreen Button" method="_on_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
