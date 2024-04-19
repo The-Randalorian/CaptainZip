@@ -65,6 +65,7 @@ a_rank = 90.0
 b_rank = 120.0
 c_rank = 150.0
 d_rank = 200.0
+levelNum = 2
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_tnrbb")

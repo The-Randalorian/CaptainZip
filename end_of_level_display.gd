@@ -22,7 +22,7 @@ func _ready():
 
 var queued_level:String
 
-func end_level(next_level):
+func end_level(next_level, levelNum):
 	#print(next_level);
 	if level_running:
 		stop_timer()
@@ -30,7 +30,8 @@ func end_level(next_level):
 		level_running = false
 		display_showing = true
 		queued_level = next_level
-		setupSave();
+		var serializeInstance = Serializer.new();
+		serializeInstance.setupSave(levelNum);
 
 func level_ended():
 	get_tree().call_deferred("change_scene_to_file", queued_level)
@@ -68,12 +69,13 @@ func stop_timer():
 	else:
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "F"
 
-func setupSave():
-	GameManager.numLevelsCompleted += 1;
-	#print(GameManager.numLevelsCompleted);
-	
-	var serializeInstance = Serializer.new();
-	serializeInstance.completedLevels = GameManager.numLevelsCompleted;
-	
-	var cNum = ResourceSaver.save(serializeInstance, "user://CoolData.res");
-	assert(cNum == OK)
+#func setupSave(lNum):
+	##prevents levelsCompleted from incrementing when it shouldn't
+	#GameManager.numLevelsCompleted = min(lNum, GameManager.numLevelsCompleted + 1);
+	##print(GameManager.numLevelsCompleted);
+	#
+	#var serializeInstance = Serializer.new();
+	#serializeInstance.completedLevels = GameManager.numLevelsCompleted;
+	#
+	#var cNum = ResourceSaver.save(serializeInstance, "user://CoolData.res");
+	#assert(cNum == OK)

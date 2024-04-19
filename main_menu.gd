@@ -13,9 +13,12 @@ func _ready():
 	#Enables fullscreen. We can turn this into a button if we want
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN);
 	
+	#loads number of completed levels. Use this as reference for level select menu
 	var serializeInstance = Serializer.new();
 	var serializedInfo = serializeInstance.load_data("user://CoolData.res");
-	GameManager.numLevelsCompleted = serializedInfo.completedLevels;
+	
+	if (serializedInfo != null):
+		GameManager.numLevelsCompleted = serializedInfo.completedLevels;
 	
 	
 	if (GameManager.numLevelsCompleted == null):
