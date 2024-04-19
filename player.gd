@@ -4,7 +4,6 @@
 extends CharacterBody2D
 
 
-
 const JUMP_VELOCITY = -300.0		# how much initial speed to put into a jump
 const GROUND_SPEED = 300.0			# target speed on the ground
 const GROUND_ACCELERATION = 0.05	# how fast to speed up on the ground

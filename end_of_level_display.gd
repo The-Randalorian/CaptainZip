@@ -23,12 +23,14 @@ func _ready():
 var queued_level:String
 
 func end_level(next_level):
+	#print(next_level);
 	if level_running:
 		stop_timer()
 		$AnimationPlayer.play("show_stats")
 		level_running = false
 		display_showing = true
 		queued_level = next_level
+		setupSave();
 
 func level_ended():
 	get_tree().call_deferred("change_scene_to_file", queued_level)
@@ -65,3 +67,13 @@ func stop_timer():
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "D"
 	else:
 		$CenterContainer/VBoxContainer/GridContainer/rank_value.text = "F"
+
+func setupSave():
+	GameManager.numLevelsCompleted += 1;
+	#print(GameManager.numLevelsCompleted);
+	
+	var serializeInstance = Serializer.new();
+	serializeInstance.completedLevels = GameManager.numLevelsCompleted;
+	
+	var cNum = ResourceSaver.save(serializeInstance, "user://CoolData.res");
+	assert(cNum == OK)

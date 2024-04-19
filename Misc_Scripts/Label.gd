@@ -16,4 +16,4 @@ func _process(delta):
 	var seconds = total_seconds - (minutes * 60)
 	var time_string = ("%02d" % minutes) + ":" + ("%02.3f" % seconds)
 	self.text = time_string
-	print(self.position)
+	#print(self.position)
