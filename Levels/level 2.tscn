@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfad2t513mfb4"]
+[gd_scene load_steps=15 format=3 uid="uid://bfad2t513mfb4"]
 
 [ext_resource type="Texture2D" uid="uid://btvf5g5otn5li" path="res://background/horizon.png" id="1_tacjl"]
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_tnrbb"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://ddkmk7y2368db" path="res://background/ocean .png" id="3_5xg0d"]
 [ext_resource type="PackedScene" uid="uid://dyy4t1humyrf0" path="res://zipline.tscn" id="3_y5hip"]
 [ext_resource type="PackedScene" uid="uid://cf1mcqjk84msd" path="res://player.tscn" id="4_uwrlc"]
+[ext_resource type="PackedScene" uid="uid://beoo8rxmj462i" path="res://Levels/Pause_Menu.tscn" id="5_7trrq"]
 [ext_resource type="PackedScene" uid="uid://btqqybw2pghy4" path="res://cowboy.tscn" id="5_lk303"]
+[ext_resource type="Script" path="res://Levels/Pause_Menu.gd" id="6_wn7cs"]
 [ext_resource type="PackedScene" uid="uid://ccd7lf64ciqsm" path="res://follow_camera.tscn" id="7_d7mvt"]
 [ext_resource type="AudioStream" uid="uid://d02se2yop5o3w" path="res://Audio/Music/pirate_day.ogg" id="10_nuwhc"]
 [ext_resource type="PackedScene" uid="uid://dkw6sljjvaqat" path="res://crab/crab.tscn" id="11_t84lf"]
@@ -66,6 +68,11 @@ b_rank = 120.0
 c_rank = 150.0
 d_rank = 200.0
 levelNum = 2
+
+[node name="PauseMenu" parent="follow_camera" instance=ExtResource("5_7trrq")]
+process_mode = 3
+scale = Vector2(0.5, 0.5)
+script = ExtResource("6_wn7cs")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_tnrbb")
