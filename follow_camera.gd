@@ -12,7 +12,7 @@ var velocity = Vector2(0.0, 0.0)
 
 const CAMERA_ACCELERATION = 1.80
 const CAMERA_DAMPING = 0.80
-var camera_offset = Vector2(0, -27)
+var camera_offset = Vector2(120, -27)
 
 @export var s_rank = 30.0
 @export var a_rank = 60.0
