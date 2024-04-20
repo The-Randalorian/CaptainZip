@@ -143,10 +143,8 @@ stream = ExtResource("10_6vwyo")
 autoplay = true
 bus = &"Music"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level1Button" to="." method="_on_move_left_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level1Button" to="." method="_on_level_1_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/detach" to="." method="_on_detach_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level2Button" to="." method="_on_jump_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level2Button" to="." method="_on_level_2_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level3Button" to="." method="_on_level_3_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
