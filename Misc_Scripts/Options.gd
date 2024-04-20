@@ -61,16 +61,16 @@ func _on_main_menu_pressed():
 
 
 func _on_level_1_button_pressed():
-	if (GameManager.numLevelsCompleted >= 1):
+	if (GameManager.numLevelsCompleted >= 0):
 		get_tree().change_scene_to_file("res://Levels/level 1.tscn")
 
 
 func _on_level_2_button_pressed():
 	#this is not a typo! Levels 2 and 3 are swapped!
-	if (GameManager.numLevelsCompleted >= 2):
+	if (GameManager.numLevelsCompleted >= 1):
 		get_tree().change_scene_to_file("res://Levels/level 3.tscn")
 
 
 func _on_level_3_button_pressed():
-	if (GameManager.numLevelsCompleted >= 3):
+	if (GameManager.numLevelsCompleted >= 2):
 		get_tree().change_scene_to_file("res://Levels/level 2.tscn")
