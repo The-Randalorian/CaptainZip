@@ -8,6 +8,16 @@ var EditStr = null
 func _ready():
 	$AnimationPlayer.play("scroll")
 
+	
+			
+	$CenterContainer/VBoxContainer/GridContainer/Level1Button.disabled = false;
+	
+			
+	$CenterContainer/VBoxContainer/GridContainer/Level2Button.disabled  = GameManager.numLevelsCompleted < 1;
+	
+			
+	$CenterContainer/VBoxContainer/GridContainer/Level3Button.disabled = GameManager.numLevelsCompleted < 2;
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
