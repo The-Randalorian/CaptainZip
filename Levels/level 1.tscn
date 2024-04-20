@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b37448wi8kg0f"]
+[gd_scene load_steps=23 format=3 uid="uid://b37448wi8kg0f"]
 
 [ext_resource type="TileSet" uid="uid://6sdvsnatenw2" path="res://Tilemap/tilemap1.tres" id="1_y2b1i"]
 [ext_resource type="Texture2D" uid="uid://btvf5g5otn5li" path="res://background/horizon.png" id="1_yx612"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint02.gd" id="16_cf1o1"]
 [ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint05.gd" id="17_n4rnr"]
 [ext_resource type="PackedScene" uid="uid://beoo8rxmj462i" path="res://Levels/Pause_Menu.tscn" id="21_dv405"]
+[ext_resource type="PackedScene" uid="uid://bqhdqy6q7va62" path="res://coin.tscn" id="22_r7xyv"]
 
 [node name="level2" type="Node2D"]
 
@@ -744,3 +745,21 @@ scale = Vector2(0.5, 0.5)
 stream = ExtResource("13_bafop")
 autoplay = true
 bus = &"Music"
+
+[node name="Coin" parent="." instance=ExtResource("22_r7xyv")]
+position = Vector2(-120, 138)
+
+[node name="Coin2" parent="." instance=ExtResource("22_r7xyv")]
+position = Vector2(-7, 135)
+
+[node name="Coin3" parent="." instance=ExtResource("22_r7xyv")]
+position = Vector2(-23, 114)
+
+[node name="Coin4" parent="." instance=ExtResource("22_r7xyv")]
+position = Vector2(-44, 108)
+
+[node name="Coin5" parent="." instance=ExtResource("22_r7xyv")]
+position = Vector2(-76, 113)
+
+[node name="Coin6" parent="." instance=ExtResource("22_r7xyv")]
+position = Vector2(-96, 125)
