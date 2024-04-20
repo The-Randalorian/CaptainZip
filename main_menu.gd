@@ -38,3 +38,8 @@ func _on_quit_button_button_down():
 
 func _on_option_button_button_down():
 	get_tree().change_scene_to_file("res://Levels/Options.tscn")
+	
+
+
+func _on_level_select_button_pressed():
+	get_tree().change_scene_to_file("res://Levels/LevelSelect.tscn");

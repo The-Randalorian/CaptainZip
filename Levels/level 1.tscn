@@ -22,7 +22,7 @@
 [ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint05.gd" id="17_n4rnr"]
 [ext_resource type="PackedScene" uid="uid://beoo8rxmj462i" path="res://Levels/Pause_Menu.tscn" id="21_dv405"]
 
-[node name="level" type="Node2D"]
+[node name="level2" type="Node2D"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

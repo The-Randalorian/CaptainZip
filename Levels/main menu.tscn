@@ -92,6 +92,12 @@ theme_override_fonts/font = ExtResource("3_ypd61")
 theme_override_font_sizes/font_size = 25
 text = "Options"
 
+[node name="LevelSelectButton" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ypd61")
+theme_override_font_sizes/font_size = 25
+text = "Level Select"
+
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
@@ -111,4 +117,5 @@ bus = &"Music"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="button_down" from="CenterContainer/VBoxContainer2/VBoxContainer/OptionButton" to="." method="_on_option_button_button_down"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer2/VBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
 [connection signal="button_down" from="CenterContainer/VBoxContainer2/VBoxContainer/QuitButton" to="." method="_on_quit_button_button_down"]

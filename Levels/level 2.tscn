@@ -66,7 +66,7 @@ a_rank = 90.0
 b_rank = 120.0
 c_rank = 150.0
 d_rank = 200.0
-levelNum = 2
+levelNum = 3
 
 [node name="PauseMenu" parent="follow_camera" instance=ExtResource("5_7trrq")]
 scale = Vector2(0.5, 0.5)
@@ -312,6 +312,18 @@ strength = 750
 [node name="spring16" parent="Springs" instance=ExtResource("12_76woa")]
 position = Vector2(11361, 723)
 strength = 750
+
+[node name="spring17" parent="Springs" instance=ExtResource("12_76woa")]
+position = Vector2(9745, 935)
+strength = 1100
+
+[node name="spring18" parent="Springs" instance=ExtResource("12_76woa")]
+position = Vector2(9778, 935)
+strength = 1100
+
+[node name="spring21" parent="Springs" instance=ExtResource("12_76woa")]
+position = Vector2(9806, 935)
+strength = 1100
 
 [node name="spring22" parent="Springs" instance=ExtResource("12_76woa")]
 position = Vector2(11701, 607)

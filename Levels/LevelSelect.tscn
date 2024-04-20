@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://dp1kal4joedbt"]
+
+[ext_resource type="Script" path="res://Misc_Scripts/Options.gd" id="1_0y3xw"]
+[ext_resource type="Texture2D" uid="uid://d3ktea5t51slb" path="res://background/main-menu.png" id="2_5b2pi"]
+[ext_resource type="FontFile" uid="uid://b7cb5kg44kvij" path="res://fonts/Halogen.otf" id="3_bwd3f"]
+[ext_resource type="Script" path="res://Misc_Scripts/Hint Scripts/hint.gd" id="4_kig8t"]
+[ext_resource type="Script" path="res://Misc_Scripts/MoveLeft.gd" id="5_gokld"]
+[ext_resource type="Script" path="res://Levels/LevelSelect.gd" id="5_vogom"]
+[ext_resource type="AudioStream" uid="uid://hphxla1l3ym4" path="res://Audio/Music/menu-music.ogg" id="10_6vwyo"]
+
+[sub_resource type="Animation" id="Animation_lavqv"]
+resource_name = "scroll"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1280, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wlqvp"]
+_data = {
+"scroll": SubResource("Animation_lavqv")
+}
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0y3xw")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_5b2pi")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.213
+anchor_bottom = 0.05
+offset_left = 1280.0
+offset_right = 2287.36
+offset_bottom = 684.0
+texture = ExtResource("2_5b2pi")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 45
+theme_override_fonts/font = ExtResource("3_bwd3f")
+theme_override_font_sizes/font_size = 60
+text = "
+Level Select"
+script = ExtResource("4_kig8t")
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+script = ExtResource("5_vogom")
+
+[node name="Level1Button" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bwd3f")
+theme_override_font_sizes/font_size = 36
+text = "Level 1"
+script = ExtResource("5_gokld")
+
+[node name="detach" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bwd3f")
+theme_override_font_sizes/font_size = 36
+text = "Detach"
+
+[node name="move_detach_label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("3_bwd3f")
+theme_override_font_sizes/font_size = 36
+text = "S"
+horizontal_alignment = 1
+
+[node name="Level2Button" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bwd3f")
+theme_override_font_sizes/font_size = 36
+text = "Level 2"
+
+[node name="Level3Button" type="Button" parent="CenterContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bwd3f")
+theme_override_font_sizes/font_size = 36
+text = "Level 3"
+
+[node name="MainMenu" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_bwd3f")
+theme_override_font_sizes/font_size = 36
+text = "Main Menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wlqvp")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6vwyo")
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level1Button" to="." method="_on_move_left_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/detach" to="." method="_on_detach_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level2Button" to="." method="_on_jump_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level2Button" to="." method="_on_level_2_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/GridContainer/Level3Button" to="." method="_on_level_3_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]
